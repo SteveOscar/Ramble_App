@@ -3,6 +3,7 @@ var DropDown = require('./DropDown');
 var TestComponent = require('./TestComponent');
 var ListPicker = require('./ListPicker');
 var FMPicker = require('./FMPicker');
+var ResponsiveImage = require('react-native-responsive-image');
 
 var React = require('react-native');
 var {
@@ -51,12 +52,13 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     width: 80
   },
-  image: {
-    width: 217,
-    height: 138
-  },
-  countryPicker: {
-
+  // image: {
+  //   width: 217,
+  //   height: 160
+  // },
+  title: {
+    marginBottom: 20,
+    flex: 1
   }
 });
 
@@ -94,7 +96,9 @@ class SearchPage extends Component {
   render() {
     var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large'/>) : (<View/>);
     return (
+
       <View style = {styles.container}>
+      <Image source={require('./Resources/Title.png')} style={styles.title}/>
         <Text style={styles.description}>
           Explore Currency Trends!
         </Text>
@@ -108,7 +112,7 @@ class SearchPage extends Component {
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
 
-        <Image source={require('./Resources/house.png')} style={styles.image}/>
+        <Image source={require('./Resources/glass.png')} style={styles.image}/>
         {spinner}
       </View>
     );
