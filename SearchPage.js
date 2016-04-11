@@ -1,5 +1,8 @@
 'use strict';
 var DropDown = require('./DropDown');
+var TestComponent = require('./TestComponent');
+var ListPicker = require('./ListPicker');
+var FMPicker = require('./FMPicker');
 
 var React = require('react-native');
 var {
@@ -68,8 +71,42 @@ var styles = StyleSheet.create({
   }
 });
 
+function urlForQuery(country) {
+  var querystring = country;
+  // return 'http://www.ramblemap.com/api/va' + querystring;
+  return 'http://www.ramblemap.com/api/v1/countries';
+}
+
 class SearchPage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchString: 'United States',
+      isLoading: false,
+      pickerShowing: false
+    };
+  }
+
+  onSearchTextChanged(event) {
+    this.setState({searchString: event.nativeEvent.text });
+  }
+
+  _executeQuery(query) {
+    console.log(query);
+    this.setState({isLoading: true});
+  }
+
+  onSearchPressed() {
+    console.log('SEARCHING SHUD START');
+    this.setState({pickerShowing: true});
+    var query = urlForQuery(this.state.searchString);
+    this._executeQuery(query);
+  }
+
   render() {
+    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large'/>) : (<View/>);
+    var picker = this.state.pickerShowing ? (<FMPicker />) : (<View/>);
     return (
       <View style = {styles.container}>
         <Text style={styles.description}>
@@ -78,20 +115,22 @@ class SearchPage extends Component {
         <Text style={styles.description}>
           Seach by country.
         </Text>
+        <TouchableHighlight style={styles.button}
+            underlayColor='#99d9f4'>
+          <Text style={styles.buttonText}>Base Country</Text>
+        </TouchableHighlight>
         <View style={styles.flowRight}>
           <TextInput
             style={styles.searchInput}
             placeholder='Country DropDown Menu'/>
-          <TouchableHighlight style={styles.button}
+          <TouchableHighlight onPress={this.onSearchPressed.bind(this)} style={styles.button}
               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
         </View>
-        <TouchableHighlight style={styles.button}
-            underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>Location</Text>
-        </TouchableHighlight>
         <Image source={require('./Resources/house.png')} style={styles.image}/>
+        {spinner}
+        {picker}
       </View>
     );
   }

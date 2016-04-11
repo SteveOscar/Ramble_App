@@ -8,6 +8,8 @@
   "dependencies": {
     "react": "^0.14.8",
     "react-native": "^0.23.1",
-    "react-native-dropdown": "0.0.6"
+    "react-native-dropdown": "0.0.6",
+    "react-native-fm-picker": "0.0.5",
+    "react-native-list-popover": "^1.0.5"
   }
 }
