@@ -27,7 +27,8 @@ var styles = StyleSheet.create({
   container: {
     padding: 30,
     marginTop: 65,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   flowRight: {
     flexDirection: 'row',
@@ -41,26 +42,14 @@ var styles = StyleSheet.create({
   },
   button: {
     height: 36,
-    flex: 1,
     flexDirection: 'row',
     backgroundColor: 'teal',
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-  searchInput: {
-    height: 36,
-    padding: 4,
-    marginRight: 5,
-    flex: 4,
-    fontSize: 18,
-    borderWidth: 1,
-    borderColor: '#48BBEC',
-    borderRadius: 8,
-    color: '#48BBEC'
+    justifyContent: 'center',
+    width: 80
   },
   image: {
     width: 217,
@@ -84,7 +73,6 @@ class SearchPage extends Component {
     this.state = {
       searchString: 'United States',
       isLoading: false,
-      pickerShowing: false
     };
   }
 
@@ -99,14 +87,12 @@ class SearchPage extends Component {
 
   onSearchPressed() {
     console.log('SEARCHING SHUD START');
-    this.setState({pickerShowing: true});
     var query = urlForQuery(this.state.searchString);
     this._executeQuery(query);
   }
 
   render() {
     var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large'/>) : (<View/>);
-    var picker = this.state.pickerShowing ? (<FMPicker />) : (<View/>);
     return (
       <View style = {styles.container}>
         <Text style={styles.description}>
@@ -115,22 +101,15 @@ class SearchPage extends Component {
         <Text style={styles.description}>
           Seach by country.
         </Text>
-        <TouchableHighlight style={styles.button}
-            underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>Base Country</Text>
-        </TouchableHighlight>
-        <View style={styles.flowRight}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder='Country DropDown Menu'/>
+        <FMPicker />
+
           <TouchableHighlight onPress={this.onSearchPressed.bind(this)} style={styles.button}
               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
-        </View>
+
         <Image source={require('./Resources/house.png')} style={styles.image}/>
         {spinner}
-        {picker}
       </View>
     );
   }
