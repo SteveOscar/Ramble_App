@@ -23,12 +23,8 @@ class TestComponent extends React.Component {
   render() {
     return (
       <Text style={styles.test}>Hello CARL</Text>
-  )
+    );
   }
 }
-
-// render() {
-//   return <React.Text style={styles.text}>Hello World (Again)</React.Text>;
-// }
 
 module.exports = TestComponent;

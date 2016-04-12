@@ -1,5 +1,9 @@
 'use strict';
 var DropDown = require('./DropDown');
+var TestComponent = require('./TestComponent');
+var ListPicker = require('./ListPicker');
+var FMPicker = require('./FMPicker');
+var ResponsiveImage = require('react-native-responsive-image');
 
 var React = require('react-native');
 var {
@@ -11,7 +15,8 @@ var {
   TouchableHighlight,
   ActivityIndicatorIOS,
   Image,
-  Component
+  Component,
+  LinkingIOS
 } = React;
 
 var styles = StyleSheet.create({
@@ -24,7 +29,8 @@ var styles = StyleSheet.create({
   container: {
     padding: 30,
     marginTop: 65,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   flowRight: {
     flexDirection: 'row',
@@ -38,60 +44,77 @@ var styles = StyleSheet.create({
   },
   button: {
     height: 36,
-    flex: 1,
     flexDirection: 'row',
     backgroundColor: 'teal',
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    width: 80
   },
-  searchInput: {
-    height: 36,
-    padding: 4,
-    marginRight: 5,
-    flex: 4,
-    fontSize: 18,
-    borderWidth: 1,
-    borderColor: '#48BBEC',
-    borderRadius: 8,
-    color: '#48BBEC'
-  },
-  image: {
-    width: 217,
-    height: 138
-  },
-  countryPicker: {
-
+  // image: {
+  //   width: 217,
+  //   height: 160
+  // },
+  title: {
+    marginBottom: 20,
+    flex: 1
   }
 });
 
+function urlForQuery(country) {
+  var querystring = country;
+  // return 'http://www.ramblemap.com/api/va' + querystring;
+  return 'http://www.ramblemap.com/api/v1/countries';
+}
+
 class SearchPage extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchString: 'United States',
+      isLoading: false,
+    };
+  }
+
+  onSearchTextChanged(event) {
+    this.setState({searchString: event.nativeEvent.text });
+  }
+
+  _executeQuery(query) {
+    console.log(query);
+    this.setState({isLoading: true});
+  }
+
+  onSearchPressed() {
+    console.log('SEARCHING SHUD START');
+    var query = urlForQuery(this.state.searchString);
+    this._executeQuery(query);
+  }
+
   render() {
+    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large'/>) : (<View/>);
     return (
+
       <View style = {styles.container}>
+      <Image source={require('./Resources/Title.png')} style={styles.title}/>
         <Text style={styles.description}>
-          Explore Currency Trends!
+          Explore Currency Trends
         </Text>
-        <Text style={styles.description}>
-          Seach by country.
-        </Text>
-        <View style={styles.flowRight}>
-          <TextInput
-            style={styles.searchInput}
-            placeholder='Country DropDown Menu'/>
-          <TouchableHighlight style={styles.button}
+        <FMPicker />
+          <TouchableHighlight onPress={this.onSearchPressed.bind(this)} style={styles.button}
               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
-        </View>
-        <TouchableHighlight style={styles.button}
-            underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>Location</Text>
-        </TouchableHighlight>
-        <Image source={require('./Resources/house.png')} style={styles.image}/>
+
+        <Image source={require('./Resources/glass.png')} style={styles.image}/>
+        <Text style={styles.description}>
+        LinkingIOS.openURL(url)
+          Powered by RambleMap
+        </Text>
+        {spinner}
       </View>
     );
   }
