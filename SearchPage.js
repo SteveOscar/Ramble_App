@@ -31,11 +31,6 @@ var styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  flowRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'stretch'
-  },
   buttonText: {
     fontSize: 18,
     color: 'white',
@@ -52,10 +47,6 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     width: 80
   },
-  // image: {
-  //   width: 217,
-  //   height: 160
-  // },
   title: {
     marginBottom: 20,
     flex: 1

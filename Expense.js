@@ -3,19 +3,17 @@ var React = require('react-native');
 var {
   View,
   Text,
-  Component
+  Component,
+  ListView
 } = React;
 
 class Expense extends React.Component{
-  getInitialState() {
-    return { editable: false };
-  }
 
   render() {
 
     return (
       <View>
-        <Text>{this.props.expense}</Text>
+        <Text>{this.props.expense[0]}: {this.props.expense[1]}</Text>
       </View>
     );
   }
