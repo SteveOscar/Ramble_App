@@ -15,7 +15,8 @@ var {
   TouchableHighlight,
   ActivityIndicatorIOS,
   Image,
-  Component
+  Component,
+  LinkingIOS
 } = React;
 
 var styles = StyleSheet.create({
@@ -100,19 +101,19 @@ class SearchPage extends Component {
       <View style = {styles.container}>
       <Image source={require('./Resources/Title.png')} style={styles.title}/>
         <Text style={styles.description}>
-          Explore Currency Trends!
-        </Text>
-        <Text style={styles.description}>
-          Seach by country.
+          Explore Currency Trends
         </Text>
         <FMPicker />
-
           <TouchableHighlight onPress={this.onSearchPressed.bind(this)} style={styles.button}
               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Go</Text>
           </TouchableHighlight>
 
         <Image source={require('./Resources/glass.png')} style={styles.image}/>
+        <Text style={styles.description}>
+        LinkingIOS.openURL(url)
+          Powered by RambleMap
+        </Text>
         {spinner}
       </View>
     );
