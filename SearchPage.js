@@ -1,7 +1,7 @@
 'use strict';
-var DropDown = require('./DropDown');
 var TestComponent = require('./TestComponent');
 var FMPicker = require('./FMPicker');
+var Expenses = require('./Expenses');
 var ResponsiveImage = require('react-native-responsive-image');
 
 var React = require('react-native');
@@ -90,7 +90,6 @@ class SearchPage extends Component {
       .then((response) => {
         this._handleResponse(response);
       })
-      // .then(responseJson => this._handleResponse(responseJson))
       .catch(error =>
          this.setState({
           isLoading: false,
@@ -99,9 +98,9 @@ class SearchPage extends Component {
   }
 
   _handleResponse(response) {
-    console.log(response);
+    // console.log(response != undefined);
     this.setState({isLoading: false, message: ''});
-    if (response.application_response_code.substr(0, 1) === '1') {
+    if (response !== undefined) {
       this.props.navigator.push({
         title: 'Results',
         component: Expenses,
