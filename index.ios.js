@@ -1,8 +1,6 @@
 'use strict';
 var React = require('react-native');
 var SearchPage = require('./SearchPage');
-var DropDown = require('./DropDown');
-var TestComponent = require('./TestComponent');
 
 var styles = React.StyleSheet.create({
   text: {

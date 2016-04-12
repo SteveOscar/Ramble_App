@@ -9,12 +9,6 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-    },
     welcome: {
         fontSize: 20,
         textAlign: 'center',
@@ -28,14 +22,15 @@ var styles = StyleSheet.create({
     buttonText: {
       fontSize: 18,
       color: 'white',
-      alignSelf: 'center'
+      alignSelf: 'center',
+      fontWeight: 'bold'
     },
     button: {
       height: 36,
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: 'teal',
-      borderColor: 'black',
+      backgroundColor: '#48BBEC',
+      borderColor: '#48BBEC',
       borderWidth: 1,
       borderRadius: 8,
       marginBottom: 10,
@@ -50,8 +45,8 @@ class Expense extends React.Component{
   render() {
 
     return (
-      <View>
-        <Text style={styles.welcome}>{this.props.expense[0]}: {this.props.expense[1]}</Text>
+      <View style={styles.button}>
+        <Text style={styles.buttonText}>{this.props.expense[0]}: {parseInt(this.props.expense[1] * 100)}%</Text>
       </View>
     );
   }

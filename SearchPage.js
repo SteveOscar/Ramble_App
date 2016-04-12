@@ -1,5 +1,4 @@
 'use strict';
-var TestComponent = require('./TestComponent');
 var FMPicker = require('./FMPicker');
 var Expenses = require('./Expenses');
 var ResponsiveImage = require('react-native-responsive-image');
@@ -94,7 +93,6 @@ class SearchPage extends Component {
   }
 
   _handleResponse(response) {
-    // console.log(response != undefined);
     this.setState({isLoading: false, message: ''});
     if (response !== undefined) {
       this.props.navigator.push({

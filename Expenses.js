@@ -11,10 +11,25 @@ var {
 } = React;
 
 let styles = StyleSheet.create({
+  container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'white',
+      opacity: 5
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'contain', // or 'stretch'
-  }
+  },
+  titleText: {
+    fontSize: 18,
+    color: 'black',
+    alignSelf: 'center',
+    fontWeight: 'bold',
+    marginBottom: 25,
+    marginTop: 10
+  },
 });
 
 class Expenses extends Component {
@@ -34,12 +49,13 @@ class Expenses extends Component {
     });
 
     return (
-
       <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}>
-      <ScrollView>
-        <Text>Key: 1 means equally expensive</Text>
-        {expenses}
-      </ScrollView>
+        <ScrollView>
+        <View style={styles.container}>
+          <Text style={styles.titleText}>How far your home currency will go in each country (Switzerland: 75% means 1 unit of your currency will have 75% of its purchasing power in Switzerland vs at home.)</Text>
+          {expenses}
+        </View>
+        </ScrollView>
       </Image>
     )
   }
