@@ -15,15 +15,20 @@ var {
   ActivityIndicatorIOS,
   Image,
   Component,
-  LinkingIOS
+  Linking
 } = React;
 
 var styles = StyleSheet.create({
   description: {
-    marginBottom: 20,
+    marginBottom: 10,
     fontSize: 18,
     textAlign: 'center',
     color: '#656565'
+  },
+  link: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'blue'
   },
   container: {
     padding: 30,
@@ -102,41 +107,37 @@ class SearchPage extends Component {
     }
   }
 
-  // onExpensesPressed() {
-  //   var query = urlForQuery(this.state.searchString);
-  //   this._executeQuery(query);
-  // }
-
-  onUpdate(country){
-    console.log("Selected Country: " + country);
-    this.setState({
-        searchString: country
-    });
+  onExpensesPressed() {
     var query = urlForQuery(this.state.searchString);
     this._executeQuery(query);
+  }
+
+  onUpdate(country){
+    this.setState({ searchString: country });
+    var query = urlForQuery(this.state.searchString);
   }
 
   render() {
     var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large'/>) : (<View/>);
     return (
-
       <View style = {styles.container}>
       <Image source={require('./Resources/Title.png')} style={styles.title}/>
         <Text style={styles.description}>
           Explore Currency Trends
         </Text>
+        {spinner}
         <FMPicker onUpdate={this.onUpdate.bind(this)}/>
           <TouchableHighlight style={styles.button}
               underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Expenses</Text>
+            <Text onPress={this.onExpensesPressed.bind(this)} style={styles.buttonText}>Expenses</Text>
           </TouchableHighlight>
 
         <Image source={require('./Resources/glass.png')} style={styles.image}/>
-        <Text style={styles.description}>
-        LinkingIOS.openURL(url)
-          Powered by RambleMap
+        <Text style={styles.description}>Powered By </Text>
+        <Text style={styles.link}
+              onPress={() => Linking.openURL('http://www.ramblemap.com')}>
+          RambleMap
         </Text>
-        {spinner}
       </View>
     );
   }

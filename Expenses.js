@@ -10,6 +10,13 @@ var {
   Component
 } = React;
 
+let styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'contain', // or 'stretch'
+  }
+});
+
 class Expenses extends Component {
 
   constructor(props) {
@@ -27,9 +34,13 @@ class Expenses extends Component {
     });
 
     return (
+
+      <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}>
       <ScrollView>
+        <Text>Key: 1 means equally expensive</Text>
         {expenses}
       </ScrollView>
+      </Image>
     )
   }
 }
