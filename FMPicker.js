@@ -22,6 +22,13 @@ var TheFMPicker = React.createClass({
             selectedRange: '1'
         };
     },
+
+    update: function()
+    {
+        var theVal = this.state.selectedCountry;
+        this.props.onUpdate(theVal);
+    },
+
     render: function() {
         return (
             <View style={styles.container}>
@@ -47,7 +54,8 @@ var TheFMPicker = React.createClass({
 
                 <FMPicker ref={'picker'} options={options}
                     onSubmit={(option)=>{
-                        this.setState({selectedCountry: option, countryBtnLabel: option})
+                        this.setState({selectedCountry: option, countryBtnLabel: option});
+                        this.update();
                     }}
                     />
                 <FMPicker ref={'picker2'} options={options2}

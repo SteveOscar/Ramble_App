@@ -55,8 +55,8 @@ var styles = StyleSheet.create({
 
 function urlForQuery(country) {
   var querystring = country;
-  // return 'http://www.ramblemap.com/api/va' + querystring;
-  return 'http://www.ramblemap.com/api/v1/expenses/France';
+  return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
+  // return 'http://www.ramblemap.com/api/v1/expenses/France';
 }
 
 class SearchPage extends Component {
@@ -102,8 +102,16 @@ class SearchPage extends Component {
     }
   }
 
-  onSearchPressed() {
-    console.log('SEARCHING SHUD START');
+  // onExpensesPressed() {
+  //   var query = urlForQuery(this.state.searchString);
+  //   this._executeQuery(query);
+  // }
+
+  onUpdate(country){
+    console.log("Selected Country: " + country);
+    this.setState({
+        searchString: country
+    });
     var query = urlForQuery(this.state.searchString);
     this._executeQuery(query);
   }
@@ -117,10 +125,10 @@ class SearchPage extends Component {
         <Text style={styles.description}>
           Explore Currency Trends
         </Text>
-        <FMPicker />
-          <TouchableHighlight onPress={this.onSearchPressed.bind(this)} style={styles.button}
+        <FMPicker onUpdate={this.onUpdate.bind(this)}/>
+          <TouchableHighlight style={styles.button}
               underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Go</Text>
+            <Text style={styles.buttonText}>Expenses</Text>
           </TouchableHighlight>
 
         <Image source={require('./Resources/glass.png')} style={styles.image}/>
