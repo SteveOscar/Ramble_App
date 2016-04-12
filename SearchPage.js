@@ -1,7 +1,6 @@
 'use strict';
 var DropDown = require('./DropDown');
 var TestComponent = require('./TestComponent');
-var ListPicker = require('./ListPicker');
 var FMPicker = require('./FMPicker');
 var ResponsiveImage = require('react-native-responsive-image');
 
@@ -66,7 +65,7 @@ var styles = StyleSheet.create({
 function urlForQuery(country) {
   var querystring = country;
   // return 'http://www.ramblemap.com/api/va' + querystring;
-  return 'http://www.ramblemap.com/api/v1/countries';
+  return 'http://www.ramblemap.com/api/v1/expenses/France';
 }
 
 class SearchPage extends Component {
@@ -84,8 +83,33 @@ class SearchPage extends Component {
   }
 
   _executeQuery(query) {
-    console.log(query);
+    console.log('Query: ' + query);
     this.setState({isLoading: true});
+    fetch(query)
+      .then(response => response.json())
+      .then((response) => {
+        this._handleResponse(response);
+      })
+      // .then(responseJson => this._handleResponse(responseJson))
+      .catch(error =>
+         this.setState({
+          isLoading: false,
+          message: 'Something bad happened ' + error
+       }));
+  }
+
+  _handleResponse(response) {
+    console.log(response);
+    this.setState({isLoading: false, message: ''});
+    if (response.application_response_code.substr(0, 1) === '1') {
+      this.props.navigator.push({
+        title: 'Results',
+        component: Expenses,
+        passProps: {expenses: response}
+      })
+    } else {
+      this.setState({message: 'Location not recognized; please try again.'});
+    }
   }
 
   onSearchPressed() {

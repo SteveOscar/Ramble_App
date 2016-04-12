@@ -2,7 +2,6 @@
 var React = require('react-native');
 var SearchPage = require('./SearchPage');
 var DropDown = require('./DropDown');
-var ListPicker = require('./ListPicker');
 var TestComponent = require('./TestComponent');
 
 var styles = React.StyleSheet.create({
@@ -32,10 +31,6 @@ class RambleApp extends React.Component {
           title: 'Ramble App',
           component: SearchPage
         }}/>
-        // <View>
-        //   <TestComponent />
-        //   <ListPicker />
-        // </View>
     );
   }
 }
