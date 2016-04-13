@@ -11,8 +11,8 @@ var {
 var FMPicker = require('react-native-fm-picker');
 
 var options = ["Afghanistan", "Albania", "Algeria", "Angola", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bangladesh", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Côte d'Ivoire", "Democratic Republic of Congo", "Denmark", "Djibouti", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Lithuania", "Luxembourg", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Mali", "Mauritania", "Mexico", "Moldova", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nepal", "Netherlands[L]", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "Norway", "Oman", "Pakistan", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico", "Qatar", "Romania", "Russia", "Rwanda", "Saudi Arabia", "Senegal", "Serbia", "Sierra Leone", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "Somaliland", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "West Sahara", "Yemen", "Zambia", "Zimbabwe"];
-
-var options2 = ['1', '2', '3'];
+//
+// var options2 = ['1', '2', '3'];
 
 var TheFMPicker = React.createClass({
     getInitialState: function(){
@@ -32,8 +32,8 @@ var TheFMPicker = React.createClass({
     render: function() {
         return (
             <View style={styles.container}>
-                <Text>Country: {this.state.selectedCountry}</Text>
-                <Text>Time Span: {this.state.selectedRange} Year</Text>
+                {/*<Text>Country: {this.state.selectedCountry}</Text>
+                <Text>Time Span: {this.state.selectedRange} Year</Text>*/}
 
                 <TouchableHighlight style={styles.button}
                     underlayColor='#99d9f4'
@@ -43,13 +43,13 @@ var TheFMPicker = React.createClass({
                   <Text style={styles.buttonText}>{this.state.countryBtnLabel}</Text>
                 </TouchableHighlight>
 
-                <TouchableHighlight style={styles.button}
+                {/*<TouchableHighlight style={styles.button}
                     underlayColor='#99d9f4'
                     onPress={()=>{
                         this.refs.picker2.show();
                     }}>
                   <Text style={styles.buttonText}>Time Span</Text>
-                </TouchableHighlight>
+                </TouchableHighlight>*/}
 
 
                 <FMPicker ref={'picker'} options={options}
@@ -58,11 +58,11 @@ var TheFMPicker = React.createClass({
                         this.update();
                     }}
                     />
-                <FMPicker ref={'picker2'} options={options2}
+                {/*<FMPicker ref={'picker2'} options={options2}
                     onSubmit={(option)=>{
                         this.setState({selectedRange: option})
                     }}
-                    />
+                    />*/}
             </View>
         );
     }
@@ -74,6 +74,7 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
+        marginBottom: 12
     },
     welcome: {
         fontSize: 20,
@@ -94,7 +95,7 @@ var styles = StyleSheet.create({
       height: 36,
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: 'teal',
+      backgroundColor: '#48BBEC',
       borderColor: 'black',
       borderWidth: 1,
       borderRadius: 8,

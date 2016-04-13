@@ -1,6 +1,7 @@
 'use strict';
 var FMPicker = require('./FMPicker');
 var Expenses = require('./Expenses');
+var Trends = require('./Trends');
 var ResponsiveImage = require('react-native-responsive-image');
 
 var React = require('react-native');
@@ -24,6 +25,12 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     color: '#656565'
   },
+  helperText: {
+    marginBottom: 10,
+    fontSize: 14,
+    textAlign: 'center',
+    color: 'black'
+  },
   link: {
     fontSize: 18,
     textAlign: 'center',
@@ -43,13 +50,13 @@ var styles = StyleSheet.create({
   button: {
     height: 36,
     flexDirection: 'row',
-    backgroundColor: 'teal',
+    backgroundColor: 'red',
     borderColor: 'black',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
     justifyContent: 'center',
-    width: 80
+    width: 300
   },
   title: {
     marginBottom: 20,
@@ -57,9 +64,14 @@ var styles = StyleSheet.create({
   }
 });
 
-function urlForQuery(country) {
+function urlForExpensesQuery(country) {
   var querystring = country;
   return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
+}
+
+function urlForTrendsQuery(country) {
+  var querystring = country;
+  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
 }
 
 class SearchPage extends Component {
@@ -76,13 +88,13 @@ class SearchPage extends Component {
     this.setState({searchString: event.nativeEvent.text });
   }
 
-  _executeQuery(query) {
+  _executeQuery(query, component) {
     console.log('Query: ' + query);
     this.setState({isLoading: true});
     fetch(query)
       .then(response => response.json())
       .then((response) => {
-        this._handleResponse(response);
+        this._handleResponse(response, component);
       })
       .catch(error =>
          this.setState({
@@ -91,28 +103,34 @@ class SearchPage extends Component {
        }));
   }
 
-  _handleResponse(response) {
+  _handleResponse(response, component) {
     this.setState({isLoading: false, message: ''});
     if (response !== undefined) {
       this.props.navigator.push({
-        title: 'Expense',
-        component: Expenses,
+        title: component,
+        component:  component,
         passProps: {expenses: response,
+                    trends: response,
                     navigator: this.props.navigator}
-      })
+      });
     } else {
       this.setState({message: 'Location not recognized; please try again.'});
     }
   }
 
   onExpensesPressed() {
-    var query = urlForQuery(this.state.searchString);
-    this._executeQuery(query);
+    var query = urlForExpensesQuery(this.state.searchString);
+    this._executeQuery(query, Expenses);
+  }
+
+  onTrendsPressed() {
+    var query = urlForTrendsQuery(this.state.searchString);
+    this._executeQuery(query, Trends);
   }
 
   onUpdate(country){
     this.setState({ searchString: country });
-    var query = urlForQuery(this.state.searchString);
+    var query = urlForTrendsQuery(this.state.searchString);
   }
 
   render() {
@@ -121,15 +139,26 @@ class SearchPage extends Component {
       <View style = {styles.container}>
       <Image source={require('./Resources/Title.png')} style={styles.title}/>
         <Text style={styles.description}>
-          Explore Currency Trends
+          Explore relative expenses and currency trends
         </Text>
-        {spinner}
-        <FMPicker onUpdate={this.onUpdate.bind(this)}/>
-          <TouchableHighlight style={styles.button}
-              underlayColor='#99d9f4'>
-            <Text onPress={this.onExpensesPressed.bind(this)} style={styles.buttonText}>Expenses</Text>
-          </TouchableHighlight>
 
+        <FMPicker onUpdate={this.onUpdate.bind(this)}/>
+        <Text style={styles.helperText}>
+          View your currency's relative power in other countries:
+        </Text>
+        <TouchableHighlight onPress={this.onExpensesPressed.bind(this)}
+                            style={styles.button}
+                            underlayColor='#99d9f4'>
+          <Text style={styles.buttonText}>View Currency Power</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={this.onTrendsPressed.bind(this)}
+                            style={styles.button}
+                            underlayColor='#99d9f4'>
+          <Text style={styles.buttonText}>View Currency Trends</Text>
+        </TouchableHighlight>
+
+        {spinner}
         <Image source={require('./Resources/glass.png')} style={styles.image}/>
         <Text style={styles.description}>Powered By </Text>
         <Text style={styles.link}
