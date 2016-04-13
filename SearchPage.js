@@ -60,7 +60,6 @@ var styles = StyleSheet.create({
 function urlForQuery(country) {
   var querystring = country;
   return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
-  // return 'http://www.ramblemap.com/api/v1/expenses/France';
 }
 
 class SearchPage extends Component {
@@ -96,9 +95,10 @@ class SearchPage extends Component {
     this.setState({isLoading: false, message: ''});
     if (response !== undefined) {
       this.props.navigator.push({
-        title: 'Results',
+        title: 'Expense',
         component: Expenses,
-        passProps: {expenses: response}
+        passProps: {expenses: response,
+                    navigator: this.props.navigator}
       })
     } else {
       this.setState({message: 'Location not recognized; please try again.'});

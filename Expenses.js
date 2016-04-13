@@ -38,12 +38,11 @@ class Expenses extends Component {
     super(props);
   }
 
-
   render() {
     var expenses = this.props.expenses.map((expense) => {
       return (
         <View key={expense[0]}>
-          <Expense expense={expense}/>
+          <Expense expense={expense} navigator={this.props.navigator}/>
         </View>
       )
     });
