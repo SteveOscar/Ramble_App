@@ -9,42 +9,9 @@ var {
   Dimensions
 } = React;
 
-var width = (Dimensions.get('window').width * 0.8); //position spinner
-
-var styles = StyleSheet.create({
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-    buttonText: {
-      fontSize: 18,
-      color: 'white',
-      alignSelf: 'center',
-      fontWeight: 'bold'
-    },
-    button: {
-      height: 36,
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#48BBEC',
-      borderColor: '#48BBEC',
-      borderWidth: 1,
-      borderRadius: 8,
-      marginBottom: 10,
-      alignSelf: 'stretch',
-      justifyContent: 'center',
-      width: width
-    },
-});
+const styles = require('./ResultsStyles');
 
 class Trend extends React.Component{
-
   constructor(props) {
     super(props);
   }
