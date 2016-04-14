@@ -12,23 +12,29 @@ var {
 
 let styles = StyleSheet.create({
   container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'white',
-      opacity: 5
+    padding: 30,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'contain', // or 'stretch'
+    resizeMode: 'cover', // or 'stretch'
+    alignSelf: 'center',
+    marginTop: 10
   },
   titleText: {
     fontSize: 18,
     color: 'black',
     alignSelf: 'center',
-    fontWeight: 'bold',
-    marginBottom: 25,
-    marginTop: 10
+    marginBottom: 15
+  },
+  header: {
+    height: 70,
+    backgroundColor: 'white',
+    borderColor: '#48BBEC',
+    marginBottom: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
   },
 });
 
@@ -49,14 +55,15 @@ class Trends extends Component {
     });
 
     return (
-      <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}>
-        <ScrollView>
+      <ScrollView>
+        <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
         <View style={styles.container}>
-          <Text style={styles.titleText}>Currency Exchange Rate Trends Over 1 Year</Text>
+          <View style={styles.header}>
+            <Text style={styles.titleText}>{this.props.country} exchange rate value change over 1 year from today</Text>
+          </View>
           {trends}
         </View>
-        </ScrollView>
-      </Image>
+      </ScrollView>
     );
   }
 }

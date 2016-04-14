@@ -23,12 +23,12 @@ var {
 class RambleApp extends React.Component {
   render() {
     return (
-        <React.NavigatorIOS
-          style={styles.container}
-          initialRoute={{
-          title: 'Ramble App',
-          component: SearchPage
-        }}/>
+      <React.NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+        title: 'Ramble App',
+        component: SearchPage
+      }}/>
     );
   }
 }

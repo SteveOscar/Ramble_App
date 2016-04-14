@@ -12,23 +12,28 @@ var {
 
 let styles = StyleSheet.create({
   container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'white',
-      opacity: 5
+    padding: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'white'
   },
   backgroundImage: {
     flex: 1,
-    resizeMode: 'contain', // or 'stretch'
+    resizeMode: 'cover', // or 'stretch'
+    alignSelf: 'center',
+    marginTop: 10
   },
   titleText: {
     fontSize: 18,
     color: 'black',
     alignSelf: 'center',
-    fontWeight: 'bold',
-    marginBottom: 25,
-    marginTop: 10
+    marginBottom: 15
+  },
+  header: {
+    height: 130,
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    borderColor: '#48BBEC',
+    alignSelf: 'stretch',
   },
 });
 
@@ -44,19 +49,20 @@ class Expenses extends Component {
         <View key={expense[0]}>
           <Expense expense={expense} navigator={this.props.navigator}/>
         </View>
-      )
+      );
     });
 
     return (
-      <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}>
-        <ScrollView>
+      <ScrollView>
+        <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
         <View style={styles.container}>
-          <Text style={styles.titleText}>How far your home currency will go in each country (Switzerland: 75% means 1 unit of your currency will have 75% of its purchasing power in Switzerland vs at home.)</Text>
+          <View style={styles.header}>
+            <Text style={styles.titleText}>Showing how far {this.props.country} currency will go in each country vs domestically. Countries are shown from most exensive to least expensive:</Text>
+          </View>
           {expenses}
         </View>
-        </ScrollView>
-      </Image>
-    )
+      </ScrollView>
+    );
   }
 }
 

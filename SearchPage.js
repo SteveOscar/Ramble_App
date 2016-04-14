@@ -15,8 +15,11 @@ var {
   ActivityIndicatorIOS,
   Image,
   Component,
-  Linking
+  ScrollView,
+  Linking,
+  Dimensions
 } = React;
+var half = (Dimensions.get('window').width * 0.5) - 15;
 
 var styles = StyleSheet.create({
   description: {
@@ -38,7 +41,7 @@ var styles = StyleSheet.create({
   },
   container: {
     padding: 30,
-    marginTop: 65,
+    // marginTop: 65,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -56,11 +59,16 @@ var styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 10,
     justifyContent: 'center',
-    width: 300
+    width: 250
   },
   title: {
     marginBottom: 20,
     flex: 1
+  },
+  spinner: {
+    position: 'absolute',
+    top: 200,
+    left: half
   }
 });
 
@@ -72,6 +80,14 @@ function urlForExpensesQuery(country) {
 function urlForTrendsQuery(country) {
   var querystring = country;
   return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
+}
+
+function getTitle(Component) {
+  if(Component === Trends) {
+    return 'Currency Trends';
+  } else {
+    return 'Currency Value';
+  }
 }
 
 class SearchPage extends Component {
@@ -107,10 +123,11 @@ class SearchPage extends Component {
     this.setState({isLoading: false, message: ''});
     if (response !== undefined) {
       this.props.navigator.push({
-        title: component,
+        title: getTitle(component),
         component:  component,
         passProps: {expenses: response,
                     trends: response,
+                    country: this.state.searchString,
                     navigator: this.props.navigator}
       });
     } else {
@@ -134,8 +151,9 @@ class SearchPage extends Component {
   }
 
   render() {
-    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large'/>) : (<View/>);
+    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' style = {styles.spinner}/>) : (<View/>);
     return (
+      <ScrollView>
       <View style = {styles.container}>
       <Image source={require('./Resources/Title.png')} style={styles.title}/>
         <Text style={styles.description}>
@@ -157,8 +175,7 @@ class SearchPage extends Component {
                             underlayColor='#99d9f4'>
           <Text style={styles.buttonText}>View Currency Trends</Text>
         </TouchableHighlight>
-
-        {spinner}
+          {spinner}
         <Image source={require('./Resources/glass.png')} style={styles.image}/>
         <Text style={styles.description}>Powered By </Text>
         <Text style={styles.link}
@@ -166,6 +183,7 @@ class SearchPage extends Component {
           RambleMap
         </Text>
       </View>
+      </ScrollView>
     );
   }
 }

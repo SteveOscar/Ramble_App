@@ -5,8 +5,11 @@ var {
   Text,
   Component,
   ListView,
-  StyleSheet
+  StyleSheet,
+  Dimensions
 } = React;
+
+var width = (Dimensions.get('window').width * 0.8); //full width
 
 var styles = StyleSheet.create({
     welcome: {
@@ -36,7 +39,7 @@ var styles = StyleSheet.create({
       marginBottom: 10,
       alignSelf: 'stretch',
       justifyContent: 'center',
-      width: 300
+      width: width
     },
 });
 
