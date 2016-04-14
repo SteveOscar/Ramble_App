@@ -24,7 +24,7 @@ var half = (Dimensions.get('window').width * 0.5) - 15;
 var styles = StyleSheet.create({
   description: {
     marginBottom: 10,
-    fontSize: 18,
+    fontSize: 16,
     textAlign: 'center',
     color: '#656565'
   },
@@ -62,14 +62,15 @@ var styles = StyleSheet.create({
     width: 250
   },
   title: {
-    marginBottom: 20,
-    flex: 1
+    marginBottom: 10,
+    flex: 1,
+
   },
   spinner: {
     position: 'absolute',
     top: 200,
     left: half
-  }
+  },
 });
 
 function urlForExpensesQuery(country) {
@@ -167,13 +168,13 @@ class SearchPage extends Component {
         <TouchableHighlight onPress={this.onExpensesPressed.bind(this)}
                             style={styles.button}
                             underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>View Currency Power</Text>
+          <Text style={styles.buttonText}>Relative Currency Power</Text>
         </TouchableHighlight>
 
         <TouchableHighlight onPress={this.onTrendsPressed.bind(this)}
                             style={styles.button}
                             underlayColor='#99d9f4'>
-          <Text style={styles.buttonText}>View Currency Trends</Text>
+          <Text style={styles.buttonText}>Exchange Rate Trends</Text>
         </TouchableHighlight>
           {spinner}
         <Image source={require('./Resources/glass.png')} style={styles.image}/>

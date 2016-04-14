@@ -57,11 +57,11 @@ class Expense extends React.Component{
   }
 
 
-  _executeQuery(query) {
+  _executeQuery(query, country) {
     fetch(query)
       .then(response => response.json())
       .then((response) => {
-        this._handleResponse(response);
+        this._handleResponse(response, country);
       })
       .catch(error =>
          this.setState({
@@ -70,14 +70,14 @@ class Expense extends React.Component{
        }));
   }
 
-  _handleResponse(response) {
+  _handleResponse(response, country) {
     this.setState({isLoading: false, message: ''});
     if (response !== undefined) {
-      console.log('Navigator: ' + this.props.navigator)
+      console.log('Navigator: ' + this.props.navigator);
       this.props.navigator.push({
         title: 'Trends',
         component: Trends,
-        passProps: {trends: response}
+        passProps: {trends: response, country: country}
       });
     } else {
       this.setState({message: 'Something bad happened'});
@@ -85,8 +85,9 @@ class Expense extends React.Component{
   }
 
   onCountryPressed(country) {
+    console.log('COUNTRY: ' + country);
     var query = urlForQuery(country);
-    this._executeQuery(query);
+    this._executeQuery(query, country);
   }
 
   render() {

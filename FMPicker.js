@@ -36,7 +36,7 @@ var TheFMPicker = React.createClass({
                 <Text>Time Span: {this.state.selectedRange} Year</Text>*/}
 
                 <TouchableHighlight style={styles.button}
-                    underlayColor='#99d9f4'
+                    underlayColor='red'
                     onPress={()=>{
                         this.refs.picker.show();
                     }}>

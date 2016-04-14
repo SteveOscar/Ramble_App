@@ -10,33 +10,7 @@ var {
   Component
 } = React;
 
-let styles = StyleSheet.create({
-  container: {
-    padding: 30,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover', // or 'stretch'
-    alignSelf: 'center',
-    marginTop: 10
-  },
-  titleText: {
-    fontSize: 18,
-    color: 'black',
-    alignSelf: 'center',
-    marginBottom: 15
-  },
-  header: {
-    height: 70,
-    backgroundColor: 'white',
-    borderColor: '#48BBEC',
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-});
+const styles = require('./Styles');
 
 class Trends extends Component {
 
@@ -56,10 +30,10 @@ class Trends extends Component {
 
     return (
       <ScrollView>
-        <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
+      <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.titleText}>{this.props.country} exchange rate value change over 1 year from today</Text>
+            <Text style={styles.titleText}>{this.props.country} exchange rate values change over 1 year from today. Countries which gained the most AGAINST this currency are shown first:</Text>
           </View>
           {trends}
         </View>

@@ -9,7 +9,7 @@ var {
   Dimensions
 } = React;
 
-var width = (Dimensions.get('window').width * 0.8); //full width
+var width = (Dimensions.get('window').width * 0.8); //position spinner
 
 var styles = StyleSheet.create({
     welcome: {
