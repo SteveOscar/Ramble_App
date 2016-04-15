@@ -2,7 +2,9 @@
 ## IOS mobile app for exploring international currency and expense trend data.
 
 Author: Steven Olson
-  
+
+
+### App Demo
 ![RambleApp](http://g.recordit.co/G5v3UwbVzx.gif)
 
 ### Overview
@@ -10,10 +12,6 @@ Author: Steven Olson
 This IOS app, built with React Native and a Rails API, is designed to allow users to explore year-over-year currency exchange trends and relative expenses between countries. It's the data-side companion app to [RambleMap](http://ramblemap.com/), which provides the API for Ramble App.
 
 On the Rails API side, performance is increased through low and high-level caching, and a background rake task to fill the most popular API call caches nightly.
-
-### App Demo
-
-![Screenshot](http://i.imgur.com/zHZPOfp.png)
 
 ### Dependencies
 
