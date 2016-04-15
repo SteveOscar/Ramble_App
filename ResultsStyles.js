@@ -34,7 +34,6 @@ module.exports = StyleSheet.create({
   },
   spinner: {
     position: 'absolute',
-    top: 200,
-    left: half
+    alignSelf: 'center'
   },
 });

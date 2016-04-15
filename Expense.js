@@ -7,7 +7,8 @@ var {
   Component,
   ActivityIndicatorIOS,
   ListView,
-  StyleSheet
+  StyleSheet,
+  TouchableHighlight
 } = React;
 
 const styles = require('./ResultsStyles');
@@ -64,11 +65,12 @@ class Expense extends React.Component{
   render() {
     var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' style = {styles.spinner}/>) : (<View/>);
     return (
-      <View style={styles.button}>
-        {spinner}
-        <Text onPress={this.onCountryPressed.bind(this, this.props.expense[0])}
-              style={styles.buttonText}>{this.props.expense[0]}: {parseInt(this.props.expense[1] * 100)}%</Text>
-      </View>
+      <TouchableHighlight onPress={this.onCountryPressed.bind(this, this.props.expense[0])}
+                          style={styles.button}>
+        <Text style={styles.buttonText}>
+          {this.props.expense[0]}: {parseInt(this.props.expense[1] * 100)}%
+        </Text>
+      </TouchableHighlight>
     );
   }
 }
