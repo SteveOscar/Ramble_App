@@ -15,9 +15,9 @@ On the Rails API side, performance is increased through low and high-level cachi
 
 ### Dependencies
 
-This application can be run locally for now, as the RambleMap API is open.
+This application cannot be run locally for now, as the RambleMap API is closed.
 
-### Setup
+### Setup (if the RambleMap API is open)
 
 If you wish to download the project and set it up locally, run the following commands:
 
