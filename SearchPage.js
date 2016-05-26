@@ -23,12 +23,12 @@ const styles = require('./Styles');
 
 function urlForExpensesQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
+  return 'http://localhost:3000/api/v1/expenses/' + querystring;
 }
 
 function urlForTrendsQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
+  return 'http://localhost:3000/api/v1/trends/' + querystring;
 }
 
 function getTitle(Component) {
@@ -56,7 +56,7 @@ class SearchPage extends Component {
 
   _executeQuery(query, component) {
     this.setState({isLoading: true});
-    fetch(query)
+    fetch(query, {headers: {'token': 'ftxdIh8/uHhW3wjRI2RTlXS1Nwg2Spdw07qHAbi5QVk'}})
       .then(response => response.json())
       .then((response) => {
         this._handleResponse(response, component);
