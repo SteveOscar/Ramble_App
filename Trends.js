@@ -20,10 +20,12 @@ class Trends extends Component {
 
   render() {
     console.log('IN TRENDS!');
-    var trends = this.props.trends.map((trend) => {
+    let code = this.props.trends[0]
+    let data = this.props.trends.slice(1, this.props.trends.length)
+    let trends = data.map((trend) => {
       return (
         <View key={trend[0]}>
-          <Trend trend={trend}/>
+          <Trend trend={trend} code={code}/>
         </View>
       );
     });
@@ -33,7 +35,7 @@ class Trends extends Component {
       <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.titleText}>{this.props.country} exchange rate values change over 1 year from today. Countries which gained the most AGAINST this currency are shown first:</Text>
+            <Text style={styles.titleText}>{this.props.country} exchange rate values change over 3 years vs today. Countries which gained the most AGAINST this currency are shown first:</Text>
           </View>
           {trends}
         </View>

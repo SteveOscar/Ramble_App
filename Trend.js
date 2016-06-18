@@ -19,7 +19,7 @@ class Trend extends React.Component{
   render() {
     return (
       <View style={styles.trendButton}>
-        <Text style={styles.buttonText}>{this.props.trend[0]}:</Text>
+        <Text style={styles.buttonText}>{this.props.code} VS {this.props.trend[0]}:</Text>
         <Text style={styles.trendText}>1yr: {this.props.trend[1]}%, 2yr: {this.props.trend[2]}%, 3yr: {this.props.trend[3]}%,</Text>
       </View>
     );
