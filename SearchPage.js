@@ -28,7 +28,7 @@ function urlForExpensesQuery(country) {
 
 function urlForTrendsQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
+  return 'http://localhost:3000/api/v1/trends/' + querystring;
 }
 
 function getTitle(Component) {

@@ -14,10 +14,21 @@ module.exports = StyleSheet.create({
       marginBottom: 5,
   },
   buttonText: {
+    left: 5,
+    top: 10,
+    position: 'absolute',
     fontSize: 18,
     color: 'white',
-    alignSelf: 'center',
+    alignSelf: 'stretch',
     fontWeight: 'bold'
+  },
+  trendText: {
+    left: 5,
+    top: 40,
+    position: 'absolute',
+    fontSize: 15,
+    color: 'black',
+    alignSelf: 'auto'
   },
   button: {
     height: 36,
@@ -31,6 +42,17 @@ module.exports = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center',
     width: 300
+  },
+  trendButton: {
+    height: 72,
+    flexDirection: 'row',
+    backgroundColor: 'red',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    justifyContent: 'center',
+    width: 250
   },
   spinner: {
     position: 'absolute',
