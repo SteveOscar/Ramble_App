@@ -43,21 +43,22 @@ class Expense extends React.Component{
   _handleResponse(response, country) {
     if (response !== undefined) {
       console.log('Navigator: ' + this.props.navigator);
-      this.props.showSpinner();
+      this.props.hideSpinner();
       this.props.navigator.push({
         title: 'Trends',
         component: Trends,
         passProps: {trends: response, country: country}
       });
     } else {
+      this.props.hideSpinner();
       this.setState({message: 'Something bad happened'});
     }
   }
 
   onCountryPressed(country) {
+    this.props.showSpinner();
     console.log('COUNTRY: ' + country);
     var query = urlForQuery(country);
-    this.props.showSpinner();
     this._executeQuery(query, country);
   }
 

@@ -23,12 +23,12 @@ const styles = require('./Styles');
 
 function urlForExpensesQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com//api/v1/expenses/' + querystring;
+  return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
 }
 
 function urlForTrendsQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com//api/v1/trends/' + querystring;
+  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
 }
 
 function getTitle(Component) {
@@ -80,7 +80,7 @@ class SearchPage extends Component {
                     navigator: this.props.navigator}
       });
     } else {
-      this.setState({message: 'Data for this location is not currently available, please try a differnt location.'});
+      this.setState({isLoading: false, message: 'Data for this location is not currently available, please try a differnt location.'});
     }
   }
 

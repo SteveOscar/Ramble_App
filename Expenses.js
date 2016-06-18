@@ -35,7 +35,7 @@ class Expenses extends Component {
     var expenses = this.props.expenses.map((expense) => {
       return (
         <View key={expense[0]}>
-          <Expense expense={expense} navigator={this.props.navigator} country={this.props.country} showSpinner={this.showSpinner.bind(this)}/>
+          <Expense expense={expense} navigator={this.props.navigator} country={this.props.country} showSpinner={this.showSpinner.bind(this)} hideSpinner={this.hideSpinner.bind(this)}/>
         </View>
       );
     });
