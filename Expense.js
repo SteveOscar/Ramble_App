@@ -22,30 +22,28 @@ class Expense extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false,
       message: ''
     };
   }
 
 
   _executeQuery(query, country) {
-    this.setState({isLoading: true});
-    fetch(query)
+    fetch(query, {headers: {'token': 'ftxdIh8/uHhW3wjRI2RTlXS1Nwg2Spdw07qHAbi5QVk'}})
       .then(response => response.json())
       .then((response) => {
         this._handleResponse(response, country);
       })
       .catch(error =>
          this.setState({
-          isLoading: false,
           message: 'Something bad happened ' + error
-       }));
+       })
+     );
   }
 
   _handleResponse(response, country) {
-    this.setState({isLoading: false});
     if (response !== undefined) {
       console.log('Navigator: ' + this.props.navigator);
+      this.props.showSpinner();
       this.props.navigator.push({
         title: 'Trends',
         component: Trends,
@@ -59,11 +57,11 @@ class Expense extends React.Component{
   onCountryPressed(country) {
     console.log('COUNTRY: ' + country);
     var query = urlForQuery(country);
+    this.props.showSpinner();
     this._executeQuery(query, country);
   }
 
   render() {
-    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' style = {styles.spinner}/>) : (<View/>);
     return (
       <TouchableHighlight onPress={this.onCountryPressed.bind(this, this.props.expense[0])}
                           style={styles.button}>

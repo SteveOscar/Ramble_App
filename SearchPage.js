@@ -23,12 +23,12 @@ const styles = require('./Styles');
 
 function urlForExpensesQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
+  return 'http://www.ramblemap.com//api/v1/expenses/' + querystring;
 }
 
 function urlForTrendsQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
+  return 'http://www.ramblemap.com//api/v1/trends/' + querystring;
 }
 
 function getTitle(Component) {
@@ -69,8 +69,8 @@ class SearchPage extends Component {
   }
 
   _handleResponse(response, component) {
-    this.setState({isLoading: false});
     if (response !== undefined) {
+      this.setState({isLoading: false});
       this.props.navigator.push({
         title: getTitle(component),
         component:  component,
@@ -80,7 +80,7 @@ class SearchPage extends Component {
                     navigator: this.props.navigator}
       });
     } else {
-      this.setState({message: 'Data for this location is not currently available, please try again.'});
+      this.setState({message: 'Data for this location is not currently available, please try a differnt location.'});
     }
   }
 
@@ -100,9 +100,10 @@ class SearchPage extends Component {
   }
 
   render() {
-    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' style = {styles.spinner}/>) : (<View/>);
+    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' color='black' style = {styles.spinner}/>) : (<View/>);
     return (
       <ScrollView>
+      {spinner}
         <View style = {styles.container}>
         <Image source={require('./Resources/Title.png')} style={styles.title}/>
           <Text style={styles.description}>
@@ -124,7 +125,6 @@ class SearchPage extends Component {
                               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Exchange Rate Trends</Text>
           </TouchableHighlight>
-            {spinner}
           <Image source={require('./Resources/glass.png')} style={styles.image}/>
           <Text style={styles.description}>Powered By </Text>
           <Text style={styles.link}

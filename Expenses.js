@@ -4,6 +4,7 @@ var {
   StyleSheet,
   Image,
   View,
+  ActivityIndicatorIOS,
   TouchableHighlight,
   ScrollView,
   Text,
@@ -16,19 +17,32 @@ class Expenses extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      isLoading: false
+    };
+  }
+
+  showSpinner() {
+    this.setState({isLoading: true});
+  }
+
+  hideSpinner() {
+    this.setState({isLoading: false});
   }
 
   render() {
+    var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' color='black' style = {styles.spinner}/>) : (<View/>);
     var expenses = this.props.expenses.map((expense) => {
       return (
         <View key={expense[0]}>
-          <Expense expense={expense} navigator={this.props.navigator} country={this.props.country}/>
+          <Expense expense={expense} navigator={this.props.navigator} country={this.props.country} showSpinner={this.showSpinner.bind(this)}/>
         </View>
       );
     });
 
     return (
       <ScrollView>
+        {spinner}
         <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
         <View style={styles.container}>
           <View style={styles.header}>
