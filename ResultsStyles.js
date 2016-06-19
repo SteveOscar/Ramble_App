@@ -14,21 +14,10 @@ module.exports = StyleSheet.create({
       marginBottom: 5,
   },
   buttonText: {
-    left: 5,
-    top: 10,
-    position: 'absolute',
     fontSize: 18,
     color: 'white',
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     fontWeight: 'bold'
-  },
-  trendText: {
-    left: 5,
-    top: 40,
-    position: 'absolute',
-    fontSize: 15,
-    color: 'black',
-    alignSelf: 'auto'
   },
   button: {
     height: 36,
@@ -43,16 +32,43 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     width: 300
   },
-  trendButton: {
-    height: 72,
+  trendBox: {
+    height: 80,
     flexDirection: 'row',
-    backgroundColor: '#48BBEC',
+    backgroundColor: 'white',
     borderColor: '#48BBEC',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
+    width: 350
+  },
+  miniTrendHeaderBox: {
     justifyContent: 'center',
-    width: 250
+    position: 'absolute',
+    top: 3
+  },
+  miniTrendBox: {
+    justifyContent: 'center',
+    width: 100,
+    height: 30,
+    backgroundColor: '#48BBEC',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 3,
+    marginRight: 5,
+    marginTop: 40
+  },
+  trendHeaderText: {
+    fontSize: 18,
+    color: 'black',
+    top: 8,
+    fontWeight: 'bold'
+  },
+  trendText: {
+    fontSize: 15,
+    color: 'white',
+    alignSelf: 'auto',
+    fontWeight: 'bold'
   },
   spinner: {
     position: 'absolute',
