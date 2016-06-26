@@ -40,18 +40,31 @@ module.exports = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
+    justifyContent: 'center',
     width: 350
   },
   miniTrendHeaderBox: {
-    justifyContent: 'center',
     position: 'absolute',
     top: 3
   },
-  miniTrendBox: {
+  miniGoodTrendBox: {
     justifyContent: 'center',
+    flexDirection: 'row',
     width: 100,
     height: 30,
-    backgroundColor: '#48BBEC',
+    backgroundColor: 'green',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 3,
+    marginRight: 5,
+    marginTop: 40
+  },
+  miniBadTrendBox: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    width: 100,
+    height: 30,
+    backgroundColor: 'red',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 3,
@@ -62,7 +75,8 @@ module.exports = StyleSheet.create({
     fontSize: 18,
     color: 'black',
     top: 8,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    alignSelf: 'center'
   },
   trendText: {
     fontSize: 15,

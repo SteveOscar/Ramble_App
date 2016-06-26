@@ -7,6 +7,7 @@ var {
   TouchableHighlight,
   ScrollView,
   Text,
+  Linking,
   Component
 } = React;
 
@@ -35,7 +36,11 @@ class Trends extends Component {
       <Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>
         <View style={styles.container}>
           <View style={styles.header}>
-            <Text style={styles.titleText}>{this.props.country} exchange rate trends. A negative number means your currency has lost value to  that currency. Countries which gained the most AGAINST your currency over 1 year are shown first:</Text>
+            <Text style={styles.description}>{this.props.country} exchange rate trends. Green means you get more money, red means less.</Text>
+            <Text style={styles.link}
+                  onPress={() => Linking.openURL('http://www.ramblemap.com')}>
+              View Map
+            </Text>
           </View>
           {trends}
         </View>

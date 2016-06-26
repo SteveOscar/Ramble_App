@@ -19,7 +19,7 @@ class Expenses extends Component {
     super(props);
     this.state = {
       isLoading: false,
-      sortBy: 'expensive'
+      sortBy: this.props.listOrder
     };
   }
 
@@ -38,7 +38,7 @@ class Expenses extends Component {
   render() {
     let spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' color='black' style = {styles.spinner}/>) : (<View/>);
     let expenses = this.state.sortBy === 'expensive' ? (this.props.expenses.sort(function(a,b) { return a[1]-b[1] })) : (this.props.expenses.sort(function(a,b) { return b[1]-a[1] }))
-    let sortText = this.state.sortBy === 'expensive' ? 'Least expensive' : 'Most Expensive';
+    let sortText = this.state.sortBy === 'expensive' ? 'View By Cheap' : 'View By Expensive';
     let sortedExpenses = expenses.map((expense) => {
       return (
         <View key={expense[0]}>

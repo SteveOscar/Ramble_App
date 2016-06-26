@@ -17,7 +17,7 @@ var options = ["Afghanistan", "Albania", "Algeria", "Angola", "Argentina", "Arme
 var TheFMPicker = React.createClass({
     getInitialState: function(){
         return {
-            countryBtnLabel: 'Select Country',
+            countryBtnLabel: 'Select Your Country',
             selectedCountry: 'USA',
             selectedRange: '1'
         };

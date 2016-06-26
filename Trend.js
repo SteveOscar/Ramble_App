@@ -25,15 +25,15 @@ class Trend extends React.Component{
         </View>
 
 
-        <View style={styles.miniTrendBox}>
+        <View style={(this.props.trend[1] > 0) ? styles.miniGoodTrendBox : styles.miniBadTrendBox}>
           <Text style={styles.trendText}>1yr: {this.props.trend[1]}%</Text>
         </View>
 
-        <View style={styles.miniTrendBox}>
+        <View style={(this.props.trend[2] > 0) ? styles.miniGoodTrendBox : styles.miniBadTrendBox}>
           <Text style={styles.trendText}>2yrs: {this.props.trend[2]}%</Text>
         </View>
 
-        <View style={styles.miniTrendBox}>
+        <View style={(this.props.trend[3] > 0) ? styles.miniGoodTrendBox : styles.miniBadTrendBox}>
           <Text style={styles.trendText}>3yrs: {this.props.trend[3]}%</Text>
         </View>
 

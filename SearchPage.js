@@ -46,7 +46,8 @@ class SearchPage extends Component {
     this.state = {
       searchString: 'United States',
       isLoading: false,
-      message: ''
+      message: '',
+      listOrder: ''
     };
   }
 
@@ -77,14 +78,22 @@ class SearchPage extends Component {
         passProps: {expenses: response,
                     trends: response,
                     country: this.state.searchString,
-                    navigator: this.props.navigator}
+                    navigator: this.props.navigator,
+                    listOrder: this.state.listOrder}
       });
     } else {
       this.setState({isLoading: false, message: 'Data for this location is not currently available, please try a differnt location.'});
     }
   }
 
-  onExpensesPressed() {
+  onExpensivePressed() {
+    this.setState({ listOrder: 'expensive' })
+    var query = urlForExpensesQuery(this.state.searchString);
+    this._executeQuery(query, Expenses);
+  }
+
+  onCheapPressed() {
+    this.setState({ listOrder: 'cheap' })
     var query = urlForExpensesQuery(this.state.searchString);
     this._executeQuery(query, Expenses);
   }
@@ -114,10 +123,16 @@ class SearchPage extends Component {
           <Text style={styles.helperText}>
             Choose which dataset to view:
           </Text>
-          <TouchableHighlight onPress={this.onExpensesPressed.bind(this)}
+          <TouchableHighlight onPress={this.onCheapPressed.bind(this)}
                               style={styles.button}
                               underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Cheapest Countries to Visit</Text>
+            <Text style={styles.buttonText}>Cheap Countries For You</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={this.onExpensivePressed.bind(this)}
+                              style={styles.button}
+                              underlayColor='#99d9f4'>
+            <Text style={styles.buttonText}>Expensive Countries For You</Text>
           </TouchableHighlight>
 
           <TouchableHighlight onPress={this.onTrendsPressed.bind(this)}
