@@ -117,7 +117,7 @@ class SearchPage extends Component {
           <TouchableHighlight onPress={this.onExpensesPressed.bind(this)}
                               style={styles.button}
                               underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Relative Currency Power</Text>
+            <Text style={styles.buttonText}>Cheapest Countries to Visit</Text>
           </TouchableHighlight>
 
           <TouchableHighlight onPress={this.onTrendsPressed.bind(this)}
@@ -125,7 +125,7 @@ class SearchPage extends Component {
                               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Exchange Rate Trends</Text>
           </TouchableHighlight>
-          <Image source={require('./Resources/glass.png')} style={styles.image}/>
+          <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}/>
           <Text style={styles.description}>Powered By </Text>
           <Text style={styles.link}
                 onPress={() => Linking.openURL('http://www.ramblemap.com')}>

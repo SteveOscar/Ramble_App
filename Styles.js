@@ -12,7 +12,7 @@ module.exports = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover', // or 'stretch'
     alignSelf: 'center',
-    marginTop: 10,
+    marginTop: 1,
   },
   titleText: {
     fontSize: 18,
