@@ -23,12 +23,12 @@ const styles = require('./Styles');
 
 function urlForExpensesQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
+  return 'http://localhost:3000/api/v1/expenses/' + querystring;
 }
 
 function urlForTrendsQuery(country) {
   var querystring = country;
-  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
+  return 'http://localhost:3000/api/v1/trends/' + querystring;
 }
 
 function getTitle(Component) {
@@ -121,7 +121,7 @@ class SearchPage extends Component {
 
           <FMPicker onUpdate={this.onUpdate.bind(this)}/>
           <Text style={styles.helperText}>
-            Choose which dataset to view:
+            See how far you money goes abroad vs at home:
           </Text>
           <TouchableHighlight onPress={this.onCheapPressed.bind(this)}
                               style={styles.button}
@@ -134,7 +134,9 @@ class SearchPage extends Component {
                               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Expensive Countries For You</Text>
           </TouchableHighlight>
-
+          <Text style={styles.helperText}>
+            See exchange rate yearly trends:
+          </Text>
           <TouchableHighlight onPress={this.onTrendsPressed.bind(this)}
                               style={styles.button}
                               underlayColor='#99d9f4'>

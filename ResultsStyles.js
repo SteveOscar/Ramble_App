@@ -32,16 +32,25 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     width: 300
   },
-  trendBox: {
-    height: 80,
-    flexDirection: 'row',
+  answerBox: {
+    height: 120,
+    flexDirection: 'column',
     backgroundColor: 'white',
     borderColor: '#48BBEC',
-    borderWidth: 1,
+    borderWidth: 4,
     borderRadius: 8,
     marginBottom: 10,
     justifyContent: 'center',
     width: 350
+  },
+  trendBox: {
+    height: 40,
+    flexDirection: 'row',
+    borderColor: '#48BBEC',
+    marginBottom: 2,
+    justifyContent: 'center',
+    width: 340,
+    alignSelf: 'flex-start'
   },
   miniTrendHeaderBox: {
     position: 'absolute',
@@ -55,9 +64,7 @@ module.exports = StyleSheet.create({
     backgroundColor: 'green',
     borderWidth: 1,
     borderRadius: 8,
-    marginBottom: 3,
-    marginRight: 5,
-    marginTop: 40
+    marginRight: 5
   },
   miniBadTrendBox: {
     justifyContent: 'center',
@@ -67,9 +74,37 @@ module.exports = StyleSheet.create({
     backgroundColor: 'red',
     borderWidth: 1,
     borderRadius: 8,
-    marginBottom: 3,
-    marginRight: 5,
-    marginTop: 40
+    marginRight: 5
+  },
+  peaceBox: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    width: 200,
+    height: 30,
+    backgroundColor: 'green',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginRight: 5
+  },
+  goodExpenseBox: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    width: 120,
+    height: 30,
+    backgroundColor: 'green',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginRight: 5
+  },
+  badExpenseBox: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    width: 120,
+    height: 30,
+    backgroundColor: 'green',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginRight: 5
   },
   trendHeaderText: {
     fontSize: 18,

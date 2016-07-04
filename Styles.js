@@ -75,4 +75,24 @@ module.exports = StyleSheet.create({
     left: half,
     height: 80
   },
+  sortButtons: {
+    height: 40,
+    flexDirection: 'row',
+    marginBottom: 4,
+    justifyContent: 'center',
+    width: 340,
+    alignSelf: 'flex-start'
+  },
+  sortButton: {
+    height: 39,
+    flexDirection: 'row',
+    marginBottom: 2,
+    // marginLeft: 3,
+    marginRight: 3,
+    justifyContent: 'center',
+    width: 60,
+    backgroundColor: 'green',
+    borderWidth: 1,
+    borderRadius: 8
+  },
 });
