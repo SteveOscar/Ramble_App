@@ -22,12 +22,33 @@ class Trends extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      sortBy: 'cheap'
+    };
+  }
+
+  changeSort(sortMode) {
+    this.setState({sortBy: sortMode})
   }
 
   render() {
     let code = this.props.trends[0];
     let country_id = this.props.trends[1];
-    let data = this.props.trends.slice(2, this.props.trends.length);
+    let results = this.props.trends.slice(2, this.props.trends.length);
+    if(this.state.sortBy === 'cheap') {
+      var data = results.sort(function(a,b) { return b[4]-a[4] })
+    }else if(this.state.sortBy === 'expensive') {
+      var data = results.sort(function(a,b) { return a[4]-b[4] })
+    }else if(this.state.sortBy === 'trendUp') {
+      var data = results.sort(function(a,b) { return b[1]-a[1] })
+    }
+    else if(this.state.sortBy === 'trendDown') {
+      var data = results.sort(function(a,b) { return a[1]-b[1] })
+    }
+    else if(this.state.sortBy === 'safety') {
+      var data = results.sort(function(a,b) { return a[5]-b[5] })
+    }
+
     let trends = data.map((trend) => {
       return (
         <View key={trend[0]}>
@@ -48,21 +69,21 @@ class Trends extends Component {
             </Text>
           </View>
           <View style={styles.sortButtons}>
-            <View style={styles.sortButton}>
+            <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'safety')}>
               <Text>{bomb}</Text>
-            </View>
-            <View style={styles.sortButton}>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'trendUp')}>
               <Text>{up}</Text>
-            </View>
-            <View style={styles.sortButton}>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'trendDown')}>
               <Text>{down}</Text>
-            </View>
-            <View style={styles.sortButton}>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'cheap')}>
               <Text >{money}</Text>
-            </View>
-            <View style={styles.sortButton}>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'expensive')}>
               <Text>{money}{money}{money}</Text>
-            </View>
+            </TouchableHighlight>
           </View>
           {trends}
         </View>

@@ -37,11 +37,11 @@ module.exports = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     borderColor: '#48BBEC',
-    borderWidth: 4,
+    borderWidth: 3,
     borderRadius: 8,
     marginBottom: 10,
     justifyContent: 'center',
-    width: 350
+    width: 320
   },
   trendBox: {
     height: 40,
@@ -49,7 +49,7 @@ module.exports = StyleSheet.create({
     borderColor: '#48BBEC',
     marginBottom: 2,
     justifyContent: 'center',
-    width: 340,
+    width: 320,
     alignSelf: 'flex-start'
   },
   miniTrendHeaderBox: {
@@ -59,7 +59,7 @@ module.exports = StyleSheet.create({
   miniGoodTrendBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 100,
+    width: 90,
     height: 30,
     backgroundColor: 'green',
     borderWidth: 1,
@@ -69,7 +69,7 @@ module.exports = StyleSheet.create({
   miniBadTrendBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 100,
+    width: 90,
     height: 30,
     backgroundColor: 'red',
     borderWidth: 1,
@@ -79,7 +79,7 @@ module.exports = StyleSheet.create({
   peaceBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 200,
+    width: 180,
     height: 30,
     backgroundColor: 'green',
     borderWidth: 1,
@@ -89,7 +89,7 @@ module.exports = StyleSheet.create({
   goodExpenseBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 120,
+    width: 110,
     height: 30,
     backgroundColor: 'green',
     borderWidth: 1,
@@ -99,7 +99,7 @@ module.exports = StyleSheet.create({
   badExpenseBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 120,
+    width: 110,
     height: 30,
     backgroundColor: 'green',
     borderWidth: 1,
@@ -114,7 +114,7 @@ module.exports = StyleSheet.create({
     alignSelf: 'center'
   },
   trendText: {
-    fontSize: 15,
+    fontSize: 14,
     color: 'white',
     alignSelf: 'auto',
     fontWeight: 'bold'

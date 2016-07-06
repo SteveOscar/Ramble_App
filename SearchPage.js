@@ -112,7 +112,7 @@ class SearchPage extends Component {
     var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' color='black' style = {styles.spinner}/>) : (<View/>);
     return (
       <ScrollView>
-      {spinner}
+
         <View style = {styles.container}>
         <Image source={require('./Resources/Title.png')} style={styles.title}/>
           <Text style={styles.description}>
@@ -142,6 +142,7 @@ class SearchPage extends Component {
                               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Exchange Rate Trends</Text>
           </TouchableHighlight>
+          {spinner}
           <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}/>
           <Text style={styles.description}>Powered By </Text>
           <Text style={styles.link}

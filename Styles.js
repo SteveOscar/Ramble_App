@@ -6,7 +6,8 @@ module.exports = StyleSheet.create({
   container: {
     padding: 30,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   backgroundImage: {
     flex: 1,
@@ -44,7 +45,7 @@ module.exports = StyleSheet.create({
     color: 'blue'
   },
   container: {
-    padding: 30,
+    padding: 5,
     // marginTop: 65,
     alignItems: 'center',
     justifyContent: 'center'
@@ -80,19 +81,22 @@ module.exports = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 4,
     justifyContent: 'center',
-    width: 340,
-    alignSelf: 'flex-start'
+    width: 320,
+    alignSelf: 'center',
+    alignItems: 'center'
   },
   sortButton: {
-    height: 39,
+    height: 35,
     flexDirection: 'row',
     marginBottom: 2,
     // marginLeft: 3,
     marginRight: 3,
     justifyContent: 'center',
     width: 60,
-    backgroundColor: 'green',
-    borderWidth: 1,
-    borderRadius: 8
+    backgroundColor: '#48BBEC',
+    borderWidth: 0,
+    borderRadius: 8,
+    shadowOffset: {width: 3, height: 3},
+    shadowColor: 'black'
   },
 });
