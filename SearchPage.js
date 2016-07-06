@@ -86,18 +86,6 @@ class SearchPage extends Component {
     }
   }
 
-  onExpensivePressed() {
-    this.setState({ listOrder: 'expensive' })
-    var query = urlForExpensesQuery(this.state.searchString);
-    this._executeQuery(query, Expenses);
-  }
-
-  onCheapPressed() {
-    this.setState({ listOrder: 'cheap' })
-    var query = urlForExpensesQuery(this.state.searchString);
-    this._executeQuery(query, Expenses);
-  }
-
   onTrendsPressed() {
     var query = urlForTrendsQuery(this.state.searchString);
     this._executeQuery(query, Trends);
@@ -123,17 +111,7 @@ class SearchPage extends Component {
           <Text style={styles.helperText}>
             See how far you money goes abroad vs at home:
           </Text>
-          <TouchableHighlight onPress={this.onCheapPressed.bind(this)}
-                              style={styles.button}
-                              underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Cheap Countries For You</Text>
-          </TouchableHighlight>
 
-          <TouchableHighlight onPress={this.onExpensivePressed.bind(this)}
-                              style={styles.button}
-                              underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Expensive Countries For You</Text>
-          </TouchableHighlight>
           <Text style={styles.helperText}>
             See exchange rate yearly trends:
           </Text>

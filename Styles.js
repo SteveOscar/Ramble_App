@@ -22,10 +22,10 @@ module.exports = StyleSheet.create({
     marginBottom: 15
   },
   header: {
-    height: 100,
+    height: 70,
     backgroundColor: 'white',
     borderColor: '#48BBEC',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   description: {
     marginBottom: 10,
@@ -42,7 +42,8 @@ module.exports = StyleSheet.create({
   link: {
     fontSize: 18,
     textAlign: 'center',
-    color: 'blue'
+    color: 'blue',
+    alignSelf: 'center'
   },
   container: {
     padding: 5,
