@@ -38,11 +38,6 @@ class Trends extends Component {
     }
   }
 
-  _onMomentumScrollEnd(e, state, context) {
-    // you can get `state` and `this`(ref to swiper's context) from params
-    console.log(state, context.state)
-  }
-
   render() {
     let code = this.props.trends[0];
     let country_id = this.props.trends[1];
@@ -63,12 +58,6 @@ class Trends extends Component {
     else if(this.state.sortBy === 'least peaceful') {
       var data = results.sort(function(a,b) { return b[5]-a[5] })
     }
-
-
-        // <View style={styles.slide1}>
-        //   <Text style={styles.text}>Hello Swiper</Text>
-        // </View>
-
 
     let trends = data.map((trend) => {
       return (
@@ -120,7 +109,6 @@ class Trends extends Component {
             Exchange Rate Trends:
           </Text>
           <Swiper style={styles.wrapper}
-            onMomentumScrollEnd={this._onMomentumScrollEnd}
             height={150}
             removeClippedSubviews={true}
             showsPagination={false}

@@ -32,6 +32,7 @@ class ExpenseTrend extends React.Component{
   }
 
   render() {
+    // if(this.props.trend[0] === 'Azerbaijan') { debugger }
     return (
       <Animated.View style={{flex: 1,
                              flexDirection: 'column',
@@ -50,7 +51,7 @@ class ExpenseTrend extends React.Component{
 
         <View style={styles.trendBox}>
           <View style={(this.props.trend[4] > 99) ? styles.goodExpenseBox : styles.badExpenseBox}>
-            <Text style={styles.trendText}>Expense: {this.props.trend[4]*100}%</Text>
+            <Text style={styles.trendText}>Expense: {parseInt((this.props.trend[4])*100)}%</Text>
           </View>
 
           <View style={(this.props.trend[5] < 100) ? styles.peaceBox : styles.peaceBox}>
