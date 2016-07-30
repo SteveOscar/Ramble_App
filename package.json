@@ -12,6 +12,7 @@
     "react-native-fm-picker": "0.0.5",
     "react-native-list-popover": "^1.0.5",
     "react-native-responsive-image": "^1.2.0",
+    "react-native-swiper": "^1.4.7",
     "react-native-vector-icons": "^2.0.3"
   }
 }

@@ -1,5 +1,6 @@
 var React = require('react-native');
 var Trend = require('./Trend');
+var Swiper = require('react-native-swiper')
 var {
   StyleSheet,
   Image,
@@ -8,7 +9,8 @@ var {
   ScrollView,
   Text,
   Linking,
-  Component
+  Component,
+  AppRegistry
 } = React;
 
 const styles = require('./Styles');
@@ -35,6 +37,11 @@ class Trends extends Component {
     }
   }
 
+  _onMomentumScrollEnd(e, state, context) {
+    // you can get `state` and `this`(ref to swiper's context) from params
+    console.log(state, context.state)
+  }
+
   render() {
     let code = this.props.trends[0];
     let country_id = this.props.trends[1];
@@ -56,6 +63,12 @@ class Trends extends Component {
       var data = results.sort(function(a,b) { return b[5]-a[5] })
     }
 
+
+        // <View style={styles.slide1}>
+        //   <Text style={styles.text}>Hello Swiper</Text>
+        // </View>
+
+
     let trends = data.map((trend) => {
       return (
         <View key={trend[0]}>
@@ -70,11 +83,9 @@ class Trends extends Component {
         <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.description}>{this.props.country} exchange rate trends. Green is good for your wallet. Red is bad.</Text>
-            <Text style={styles.link}
-                  onPress={() => Linking.openURL('http://www.ramblemap.com/display_map?utf8=%E2%9C%93&country=' + country_id + '&region=world&commit=Submit')}>
-              View Interactive Map
-            </Text>
+
           </View>
+
           <View style={styles.sortButtons}>
             <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'most peaceful')}>
               <Text>{bomb}</Text>
@@ -95,7 +106,18 @@ class Trends extends Component {
           <Text style={styles.description}>
             Sorted by {this.state.sortBy} first
           </Text>
-          {trends}
+          <Swiper style={styles.wrapper}
+            onMomentumScrollEnd={this._onMomentumScrollEnd}
+            height={300}
+            removeClippedSubviews={true}
+            showsPagination={false}
+            showsButtons={false}>
+            {trends}
+          </Swiper>
+          <Text style={styles.link}
+                onPress={() => Linking.openURL('http://www.ramblemap.com/display_map?utf8=%E2%9C%93&country=' + country_id + '&region=world&commit=Submit')}>
+            View Interactive Map
+          </Text>
         </View>
       </ScrollView>
     );

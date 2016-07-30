@@ -33,23 +33,22 @@ module.exports = StyleSheet.create({
     width: 300
   },
   answerBox: {
-    height: 120,
-    flexDirection: 'column',
+    flex: 1,
+    flexDirection: 'row',
     backgroundColor: 'white',
     borderColor: '#48BBEC',
-    borderWidth: 3,
+    borderWidth: 10,
     borderRadius: 8,
-    marginBottom: 10,
-    justifyContent: 'center',
-    width: 320
+    margin: 10,
+    justifyContent: 'center'
   },
   trendBox: {
-    height: 40,
+    height: 200,
+    width: 320,
     flexDirection: 'row',
     borderColor: '#48BBEC',
     marginBottom: 2,
     justifyContent: 'center',
-    width: 320,
     alignSelf: 'flex-start'
   },
   miniTrendHeaderBox: {
@@ -59,8 +58,8 @@ module.exports = StyleSheet.create({
   miniGoodTrendBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 90,
-    height: 30,
+    width: 100,
+    height: 50,
     backgroundColor: 'green',
     borderWidth: 1,
     borderRadius: 8,
@@ -69,8 +68,8 @@ module.exports = StyleSheet.create({
   miniBadTrendBox: {
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 90,
-    height: 30,
+    width: 100,
+    height: 50,
     backgroundColor: 'red',
     borderWidth: 1,
     borderRadius: 8,
@@ -80,7 +79,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     width: 180,
-    height: 30,
+    height: 50,
     backgroundColor: 'green',
     borderWidth: 1,
     borderRadius: 8,
@@ -90,7 +89,7 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     width: 110,
-    height: 30,
+    height: 50,
     backgroundColor: 'green',
     borderWidth: 1,
     borderRadius: 8,
