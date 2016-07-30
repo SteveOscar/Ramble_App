@@ -12,7 +12,7 @@ var {
 
 const styles = require('./ResultsStyles');
 
-class Trend extends React.Component{
+class ExpenseTrend extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +26,7 @@ class Trend extends React.Component{
       this.state.bounceValue,                 // Animate `bounceValue`
       {
         toValue: 1,                         // Animate to smaller size
-        friction: .5,                          // Bouncier spring
+        friction: .7,                          // Bouncier spring
       }
     ).start();                                // Start the animation
   }
@@ -45,21 +45,16 @@ class Trend extends React.Component{
                            }}>
 
         <View style={styles.trendBox}>
-          <Text style={styles.trendHeaderText}>{this.props.code} in {this.props.trend[0]}:</Text>
+          <Text style={styles.trendHeaderText}>{this.props.trend[0]}:</Text>
         </View>
 
-
         <View style={styles.trendBox}>
-          <View style={(this.props.trend[1] > 0) ? styles.miniGoodTrendBox : styles.miniBadTrendBox}>
-            <Text style={styles.trendText}>1yr: {this.props.trend[1]}%</Text>
+          <View style={(this.props.trend[4] > 99) ? styles.goodExpenseBox : styles.badExpenseBox}>
+            <Text style={styles.trendText}>Expense: {this.props.trend[4]*100}%</Text>
           </View>
 
-          <View style={(this.props.trend[2] > 0) ? styles.miniGoodTrendBox : styles.miniBadTrendBox}>
-            <Text style={styles.trendText}>2yrs: {this.props.trend[2]}%</Text>
-          </View>
-
-          <View style={(this.props.trend[3] > 0) ? styles.miniGoodTrendBox : styles.miniBadTrendBox}>
-            <Text style={styles.trendText}>3yrs: {this.props.trend[4]}%</Text>
+          <View style={(this.props.trend[5] < 100) ? styles.peaceBox : styles.peaceBox}>
+            <Text style={styles.trendText}>Peace Ranking: {this.props.trend[5]}/162</Text>
           </View>
         </View>
       </Animated.View>
@@ -67,4 +62,4 @@ class Trend extends React.Component{
   }
 }
 
-module.exports = Trend;
+module.exports = ExpenseTrend;

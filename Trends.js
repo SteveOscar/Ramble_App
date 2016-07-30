@@ -1,5 +1,6 @@
 var React = require('react-native');
 var Trend = require('./Trend');
+var ExpenseTrend = require('./ExpenseTrend');
 var Swiper = require('react-native-swiper')
 var {
   StyleSheet,
@@ -77,6 +78,14 @@ class Trends extends Component {
       );
     });
 
+    let expenseTrends = data.map((trend) => {
+      return (
+        <View key={trend[0]}>
+          <ExpenseTrend trend={trend} code={code}/>
+        </View>
+      );
+    });
+
     return (
       <ScrollView>
       {/*<Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>*/}
@@ -106,14 +115,31 @@ class Trends extends Component {
           <Text style={styles.description}>
             Sorted by {this.state.sortBy} first
           </Text>
+
+          <Text style={styles.description}>
+            Exchange Rate Trends:
+          </Text>
           <Swiper style={styles.wrapper}
             onMomentumScrollEnd={this._onMomentumScrollEnd}
-            height={300}
+            height={150}
             removeClippedSubviews={true}
             showsPagination={false}
             showsButtons={false}>
             {trends}
           </Swiper>
+
+          <Text style={styles.description}>
+            Relative Expense:
+          </Text>
+          <Swiper style={styles.wrapper}
+            onMomentumScrollEnd={this._onMomentumScrollEnd}
+            height={150}
+            removeClippedSubviews={true}
+            showsPagination={false}
+            showsButtons={false}>
+            {expenseTrends}
+          </Swiper>
+
           <Text style={styles.link}
                 onPress={() => Linking.openURL('http://www.ramblemap.com/display_map?utf8=%E2%9C%93&country=' + country_id + '&region=world&commit=Submit')}>
             View Interactive Map

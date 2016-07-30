@@ -32,18 +32,18 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     width: 300
   },
-  answerBox: {
+  answerBox2: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: 'white',
+    flexDirection: 'column',
+    backgroundColor: '#92BBD9',
     borderColor: '#48BBEC',
-    borderWidth: 10,
+    borderWidth: 5,
     borderRadius: 8,
     margin: 10,
     justifyContent: 'center'
   },
   trendBox: {
-    height: 200,
+    height: 40,
     width: 320,
     flexDirection: 'row',
     borderColor: '#48BBEC',
