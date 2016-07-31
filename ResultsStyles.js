@@ -3,6 +3,16 @@ const { StyleSheet, Dimensions } = React;
 var half = (Dimensions.get('window').width * 0.5) - 15;
 
 module.exports = StyleSheet.create({
+  arrow: {
+    width: 30,
+    height: 30,
+    margin: 3
+  },
+  arrow2: {
+    resizeMode: 'contain',
+    width: 30,
+    height: 30
+  },
   welcome: {
       fontSize: 20,
       textAlign: 'center',
@@ -47,7 +57,7 @@ module.exports = StyleSheet.create({
     width: 320,
     flexDirection: 'row',
     borderColor: '#48BBEC',
-    marginBottom: 2,
+    margin: 10,
     justifyContent: 'center',
     alignSelf: 'flex-start'
   },
@@ -55,25 +65,15 @@ module.exports = StyleSheet.create({
     position: 'absolute',
     top: 3
   },
-  miniGoodTrendBox: {
+  miniTrendBox: {
     justifyContent: 'center',
     flexDirection: 'row',
     width: 100,
     height: 50,
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 8,
-    marginRight: 5
-  },
-  miniBadTrendBox: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    width: 100,
-    height: 50,
-    backgroundColor: 'red',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginRight: 5
+    margin: 3
   },
   peaceBox: {
     justifyContent: 'center',
@@ -115,6 +115,18 @@ module.exports = StyleSheet.create({
   trendText: {
     fontSize: 14,
     color: 'white',
+    alignSelf: 'auto',
+    fontWeight: 'bold'
+  },
+  trendTextGood: {
+    fontSize: 14,
+    color: 'green',
+    alignSelf: 'auto',
+    fontWeight: 'bold'
+  },
+  trendTextBad: {
+    fontSize: 14,
+    color: 'red',
     alignSelf: 'auto',
     fontWeight: 'bold'
   },

@@ -9,6 +9,11 @@ module.exports = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  trendsBackground: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch'
+  },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover', // or 'stretch'
@@ -22,8 +27,8 @@ module.exports = StyleSheet.create({
     marginBottom: 15
   },
   header: {
-    height: 70,
-    backgroundColor: 'white',
+    height: 40,
+    backgroundColor: 'transparent',
     borderColor: '#48BBEC',
     marginBottom: 8,
   },
@@ -31,7 +36,8 @@ module.exports = StyleSheet.create({
     marginBottom: 10,
     fontSize: 16,
     textAlign: 'center',
-    color: '#656565'
+    color: '#656565',
+    backgroundColor: 'transparent',
   },
   helperText: {
     marginBottom: 10,
@@ -43,7 +49,8 @@ module.exports = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     color: 'blue',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    backgroundColor: 'transparent'
   },
   container: {
     padding: 5,

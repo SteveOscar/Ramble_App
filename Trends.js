@@ -77,11 +77,12 @@ class Trends extends Component {
 
     return (
       <ScrollView>
-      {/*<Image source={require('./Resources/Title.png')} style={styles.backgroundImage}></Image>*/}
+
+        <Image source={require('./Resources/magGlass.png')} style={styles.trendsBackground}>
+
         <View style={styles.container}>
           <View style={styles.header}>
             <Text style={styles.description}>{this.props.country} exchange rate trends. Green is good for your wallet. Red is bad.</Text>
-
           </View>
 
           <View style={styles.sortButtons}>
@@ -133,6 +134,7 @@ class Trends extends Component {
             View Interactive Map
           </Text>
         </View>
+        </Image>
       </ScrollView>
     );
   }
