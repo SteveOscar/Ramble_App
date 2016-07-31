@@ -15,34 +15,33 @@ const styles = require('./ResultsStyles');
 class ExpenseTrend extends React.Component{
   constructor(props) {
     super(props);
-    this.state = {
-      bounceValue: new Animated.Value(0),
-    };
+    // this.state = {
+    //   bounceValue: new Animated.Value(0),
+    // };
   }
 
-  componentDidMount() {
-    this.state.bounceValue.setValue(1.5);     // Start large
-    Animated.spring(                          // Base: spring, decay, timing
-      this.state.bounceValue,                 // Animate `bounceValue`
-      {
-        toValue: 1,                         // Animate to smaller size
-        friction: .7,                          // Bouncier spring
-      }
-    ).start();                                // Start the animation
-  }
+  // componentDidMount() {
+  //   this.state.bounceValue.setValue(1.5);     // Start large
+  //   Animated.spring(                          // Base: spring, decay, timing
+  //     this.state.bounceValue,                 // Animate `bounceValue`
+  //     {
+  //       toValue: 1,                         // Animate to smaller size
+  //       friction: .7,                          // Bouncier spring
+  //     }
+  //   ).start();                                // Start the animation
+  // }
 
   render() {
     // if(this.props.trend[0] === 'Azerbaijan') { debugger }
     return (
-      <Animated.View style={{flex: 1,
+      <View style={{flex: 1,
                              flexDirection: 'column',
                              backgroundColor: '#9DD6EB',
                              borderColor: '#48BBEC',
                              borderWidth: 5,
                              borderRadius: 8,
                              margin: 10,
-                             justifyContent: 'center',
-                             transform: [{scale: this.state.bounceValue}]
+                             justifyContent: 'center'
                            }}>
 
         <View style={styles.trendBox}>
@@ -58,7 +57,7 @@ class ExpenseTrend extends React.Component{
             <Text style={styles.trendText}>Peace Ranking: {this.props.trend[5]}/162</Text>
           </View>
         </View>
-      </Animated.View>
+      </View>
     );
   }
 }
