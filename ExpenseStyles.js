@@ -3,16 +3,6 @@ const { StyleSheet, Dimensions } = React;
 var half = (Dimensions.get('window').width * 0.5) - 15;
 
 module.exports = StyleSheet.create({
-  arrow: {
-    width: 30,
-    height: 30,
-    margin: 3
-  },
-  arrow2: {
-    resizeMode: 'contain',
-    width: 30,
-    height: 30
-  },
   welcome: {
       fontSize: 20,
       textAlign: 'center',
@@ -23,35 +13,6 @@ module.exports = StyleSheet.create({
       color: '#333333',
       marginBottom: 5,
   },
-  buttonText: {
-    fontSize: 18,
-    color: 'white',
-    alignSelf: 'center',
-    fontWeight: 'bold'
-  },
-  button: {
-    height: 36,
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#48BBEC',
-    borderColor: '#48BBEC',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    width: 300
-  },
-  answerBox2: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#92BBD9',
-    borderColor: '#48BBEC',
-    borderWidth: 5,
-    borderRadius: 8,
-    margin: 10,
-    justifyContent: 'center'
-  },
   trendBox: {
     height: 40,
     width: 320,
@@ -60,20 +21,6 @@ module.exports = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
     alignSelf: 'flex-start'
-  },
-  miniTrendHeaderBox: {
-    position: 'absolute',
-    top: 3
-  },
-  miniTrendBox: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    width: 100,
-    height: 50,
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    margin: 3
   },
   peaceBox: {
     justifyContent: 'center',
@@ -108,7 +55,7 @@ module.exports = StyleSheet.create({
   trendHeaderText: {
     fontSize: 18,
     color: 'black',
-    top: 8,
+    top: 2,
     fontWeight: 'bold',
     alignSelf: 'center'
   },

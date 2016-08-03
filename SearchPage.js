@@ -86,18 +86,6 @@ class SearchPage extends Component {
     }
   }
 
-  onExpensivePressed() {
-    this.setState({ listOrder: 'expensive' })
-    var query = urlForExpensesQuery(this.state.searchString);
-    this._executeQuery(query, Expenses);
-  }
-
-  onCheapPressed() {
-    this.setState({ listOrder: 'cheap' })
-    var query = urlForExpensesQuery(this.state.searchString);
-    this._executeQuery(query, Expenses);
-  }
-
   onTrendsPressed() {
     var query = urlForTrendsQuery(this.state.searchString);
     this._executeQuery(query, Trends);
@@ -112,7 +100,7 @@ class SearchPage extends Component {
     var spinner = this.state.isLoading ? (<ActivityIndicatorIOS size='large' color='black' style = {styles.spinner}/>) : (<View/>);
     return (
       <ScrollView>
-      {spinner}
+
         <View style = {styles.container}>
         <Image source={require('./Resources/Title.png')} style={styles.title}/>
           <Text style={styles.description}>
@@ -121,25 +109,18 @@ class SearchPage extends Component {
 
           <FMPicker onUpdate={this.onUpdate.bind(this)}/>
           <Text style={styles.helperText}>
-            Choose which dataset to view:
+            See how far you money goes abroad vs at home:
           </Text>
-          <TouchableHighlight onPress={this.onCheapPressed.bind(this)}
-                              style={styles.button}
-                              underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Cheap Countries For You</Text>
-          </TouchableHighlight>
 
-          <TouchableHighlight onPress={this.onExpensivePressed.bind(this)}
-                              style={styles.button}
-                              underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Expensive Countries For You</Text>
-          </TouchableHighlight>
-
+          <Text style={styles.helperText}>
+            See exchange rate yearly trends:
+          </Text>
           <TouchableHighlight onPress={this.onTrendsPressed.bind(this)}
                               style={styles.button}
                               underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Exchange Rate Trends</Text>
           </TouchableHighlight>
+          {spinner}
           <Image source={require('./Resources/glass.png')} style={styles.backgroundImage}/>
           <Text style={styles.description}>Powered By </Text>
           <Text style={styles.link}

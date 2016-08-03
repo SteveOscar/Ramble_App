@@ -6,7 +6,13 @@ module.exports = StyleSheet.create({
   container: {
     padding: 30,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  trendsBackground: {
+    flex: 1,
+    width: null,
+    alignSelf: 'stretch'
   },
   backgroundImage: {
     flex: 1,
@@ -21,16 +27,17 @@ module.exports = StyleSheet.create({
     marginBottom: 15
   },
   header: {
-    height: 100,
-    backgroundColor: 'white',
+    height: 40,
+    backgroundColor: 'transparent',
     borderColor: '#48BBEC',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   description: {
     marginBottom: 10,
     fontSize: 16,
     textAlign: 'center',
-    color: '#656565'
+    color: '#656565',
+    backgroundColor: 'transparent',
   },
   helperText: {
     marginBottom: 10,
@@ -41,10 +48,12 @@ module.exports = StyleSheet.create({
   link: {
     fontSize: 18,
     textAlign: 'center',
-    color: 'blue'
+    color: 'blue',
+    alignSelf: 'center',
+    backgroundColor: 'transparent'
   },
   container: {
-    padding: 30,
+    padding: 5,
     // marginTop: 65,
     alignItems: 'center',
     justifyContent: 'center'
@@ -75,4 +84,29 @@ module.exports = StyleSheet.create({
     left: half,
     height: 80
   },
+  sortButtons: {
+    height: 40,
+    flexDirection: 'row',
+    marginBottom: 4,
+    justifyContent: 'center',
+    width: 320,
+    alignSelf: 'center',
+    alignItems: 'center'
+  },
+  sortButton: {
+    height: 35,
+    flexDirection: 'row',
+    marginBottom: 2,
+    // marginLeft: 3,
+    marginRight: 3,
+    justifyContent: 'center',
+    width: 60,
+    backgroundColor: '#48BBEC',
+    borderWidth: 0,
+    borderRadius: 8,
+    shadowOffset: {width: 3, height: 3},
+    shadowColor: 'black'
+  },
+  wrapper: {
+  }
 });
