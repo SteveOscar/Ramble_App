@@ -21,16 +21,20 @@ class ArrowDown extends React.Component{
 
   componentDidMount() {
     let component = this;
-    this.state.bounceValue.setValue(2);     // Start large
-    setTimeout(function() {
-      Animated.spring(
-        component.state.bounceValue,
-        {
-          toValue: 1,
-          friction: 1,
-        }
-      ).start();
-    } ,2000);
+    if(this.props.position === 1) {
+      this.state.bounceValue.setValue(2);     // Start large
+      setTimeout(function() {
+        Animated.spring(
+          component.state.bounceValue,
+          {
+            toValue: 1,
+            friction: 1,
+          }
+        ).start();
+      } ,2000);
+    }else {
+      this.state.bounceValue.setValue(1);
+    }
   }
 
   render() {

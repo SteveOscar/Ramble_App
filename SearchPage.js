@@ -23,12 +23,12 @@ const styles = require('./Styles');
 
 function urlForExpensesQuery(country) {
   var querystring = country;
-  return 'http://localhost:3000/api/v1/expenses/' + querystring;
+  return 'http://www.ramblemap.com/api/v1/expenses/' + querystring;
 }
 
 function urlForTrendsQuery(country) {
   var querystring = country;
-  return 'http://localhost:3000/api/v1/trends/' + querystring;
+  return 'http://www.ramblemap.com/api/v1/trends/' + querystring;
 }
 
 function getTitle(Component) {

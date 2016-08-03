@@ -41,19 +41,19 @@ class Trend extends React.Component{
         <View style={styles.trendBox}>
           <View style={styles.miniTrendBox}>
             <Text style={(this.props.trend[1] > 0) ? styles.trendTextGood : styles.trendTextBad}>1yr: {"\n"}{this.props.trend[1]}%</Text>
-            {(this.props.trend[1] > 0) ? <ArrowUp/> : <ArrowDown/> }
+            {(this.props.trend[1] > 0) ? <ArrowUp position={this.props.position}/> : <ArrowDown position={this.props.position}/> }
 
           </View>
 
           <View style={styles.miniTrendBox}>
             <Text style={(this.props.trend[2] > 0) ? styles.trendTextGood : styles.trendTextBad}>2yrs: {"\n"}{this.props.trend[2]}%</Text>
             {/*{(this.props.trend[2] > 0) ? upArrow : downArrow }*/}
-            {(this.props.trend[2] > 0) ? <ArrowUp/> : <ArrowDown/> }
+            {(this.props.trend[2] > 0) ? <ArrowUp position={this.props.position}/> : <ArrowDown position={this.props.position}/> }
           </View>
 
           <View style={styles.miniTrendBox}>
             <Text style={(this.props.trend[3] > 0) ? styles.trendTextGood : styles.trendTextBad}>3yrs: {"\n"}{this.props.trend[4]}%</Text>
-            {(this.props.trend[3] > 0) ? <ArrowUp/> : <ArrowDown/> }
+            {(this.props.trend[3] > 0) ? <ArrowUp position={this.props.position}/> : <ArrowDown position={this.props.position}/> }
           </View>
         </View>
       </View>

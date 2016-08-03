@@ -59,10 +59,12 @@ class Trends extends Component {
       var data = results.sort(function(a,b) { return b[5]-a[5] })
     }
 
+    var i = 0;
     let trends = data.map((trend) => {
+      i++;
       return (
         <View key={trend[0]}>
-          <Trend trend={trend} code={code}/>
+          <Trend trend={trend} code={code} position={i}/>
         </View>
       );
     });
