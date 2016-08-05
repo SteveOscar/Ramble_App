@@ -16,7 +16,9 @@ var {
   Image,
   Component,
   LayoutAnimation,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Animated,
+  Easing
 } = React;
 
 const styles = StyleSheet.create({
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'black',
-    margin: 20
+    margin: 20,
   },
   viewText: {
     color: 'white'
@@ -45,39 +47,62 @@ const styles = StyleSheet.create({
   },
 });
 
+let TIMES = 400;
 
 class WelcomePage extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      angle: new Animated.Value(0),
       txt: '',
       viewStyle: {
-        height: 120,
-        width: 120,
-        borderRadius: 120/2,
+        height: 50,
+        width: 50,
+        borderRadius: 0,
       }
     };
   }
 
+  _animate() {
+    this.state.angle.setValue(0);
+    this._anim = Animated.timing(this.state.angle, {
+      toValue: 360*TIMES,
+      duration: 500*TIMES,
+      easing: Easing.spring
+    }).start(this._animate);
+  }
+
+  componentDidMount() {
+    this._animate();
+  }
+
   animateView() {
-    let callback = this.animationDone.bind(this)
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, callback())
+    this.setState({txt: ''});
+    let callback = this.animationDone.bind(this);
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring, callback());
     this.setState({
       viewStyle: {
-        height: this.state.viewStyle.height > 120 ? 120 : 300,
-        width: this.state.viewStyle.width > 120 ? 120 : 300,
-        borderRadius: this.state.viewStyle.borderRadius > 120/2 ? 120/2 : 300/2
+        height: this.state.viewStyle.height > 50 ? 50 : 300,
+        width: this.state.viewStyle.width > 50 ? 50 : 300,
+        borderRadius: this.state.viewStyle.borderRadius > 0 ? 0 : 300/2
       }
     })
   }
 
   animationDone() {
-    this.setState({txt: this.state.viewStyle.height > 120 ? '' : 'Oh Hey'})
+    const component = this
+    setTimeout(function() {
+      this.setState({ txt: this.state.viewStyle.height < 300 ? '' : 'Oh, Hey'})
+    }.bind(this), 800)
   }
 
   render() {
-    let viewStyle = [styles.view, this.state.viewStyle]
+    let viewStyle = [styles.view, this.state.viewStyle, {transform: [
+                                                          {rotate: this.state.angle.interpolate({
+                                                            inputRange: [0, 360],
+                                                            outputRange: ['0deg', '360deg']
+                                                          })}]}]
     return (
       <View style={styles.container}>
         <View style={styles.logoBox}>
@@ -86,9 +111,9 @@ class WelcomePage extends Component {
 
         <View style={styles.container}>
           <TouchableWithoutFeedback onPress={this.animateView.bind(this)}>
-            <View style={viewStyle}>
+            <Animated.View style={viewStyle}>
               <Text style={styles.viewText}>{this.state.txt}</Text>
-            </View>
+            </Animated.View>
           </TouchableWithoutFeedback>
         </View>
 
