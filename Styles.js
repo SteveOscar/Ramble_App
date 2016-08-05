@@ -1,6 +1,7 @@
 const React = require('react-native');
 const { StyleSheet, Dimensions } = React;
 var half = (Dimensions.get('window').width * 0.5) - 15;
+var screenWidth = Dimensions.get('window').height;
 
 module.exports = StyleSheet.create({
   container: {
@@ -12,7 +13,7 @@ module.exports = StyleSheet.create({
   trendsBackground: {
     flex: 1,
     width: null,
-    alignSelf: 'stretch'
+    alignSelf: 'stretch',
   },
   backgroundImage: {
     flex: 1,

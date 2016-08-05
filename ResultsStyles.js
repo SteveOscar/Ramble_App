@@ -1,6 +1,6 @@
 const React = require('react-native');
 const { StyleSheet, Dimensions } = React;
-var half = (Dimensions.get('window').width * 0.5) - 15;
+var screenWidth = Dimensions.get('window').width
 
 module.exports = StyleSheet.create({
   arrow: {
@@ -52,14 +52,20 @@ module.exports = StyleSheet.create({
     margin: 10,
     justifyContent: 'center'
   },
+  description: {
+    margin: 5,
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#656565',
+    backgroundColor: 'transparent',
+  },
   trendBox: {
-    height: 40,
-    width: 320,
+    height: 50,
     flexDirection: 'row',
-    borderColor: '#48BBEC',
-    margin: 10,
+    marginTop: 3,
+    marginBottom: 10,
     justifyContent: 'center',
-    alignSelf: 'flex-start'
+    alignSelf: 'center'
   },
   miniTrendHeaderBox: {
     position: 'absolute',
@@ -80,30 +86,21 @@ module.exports = StyleSheet.create({
     flexDirection: 'row',
     width: 180,
     height: 50,
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 8,
     marginRight: 5
   },
-  goodExpenseBox: {
+  expenseBox: {
+    alignSelf: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    width: 110,
+    width: 150,
     height: 50,
-    backgroundColor: 'green',
+    backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: 8,
-    marginRight: 5
-  },
-  badExpenseBox: {
-    justifyContent: 'center',
-    flexDirection: 'row',
-    width: 110,
-    height: 30,
-    backgroundColor: 'green',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginRight: 5
+    margin: 3
   },
   trendHeaderText: {
     fontSize: 18,
@@ -113,8 +110,8 @@ module.exports = StyleSheet.create({
     alignSelf: 'center'
   },
   trendText: {
-    fontSize: 14,
-    color: 'white',
+    fontSize: 20,
+    color: 'black',
     alignSelf: 'auto',
     fontWeight: 'bold'
   },

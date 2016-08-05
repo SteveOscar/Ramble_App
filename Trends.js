@@ -80,12 +80,12 @@ class Trends extends Component {
     return (
       <ScrollView>
 
-        <Image source={require('./Resources/magGlass.png')} style={styles.trendsBackground}>
+        <Image source={require('./Resources/trendsBackground.png')} style={styles.trendsBackground}>
 
         <View style={styles.container}>
-          <View style={styles.header}>
+          {/*<View style={styles.header}>
             <Text style={styles.description}>{this.props.country} exchange rate trends. Green is good for your wallet. Red is bad.</Text>
-          </View>
+          </View>*/}
 
           <View style={styles.sortButtons}>
             <TouchableHighlight style={styles.sortButton} onPress={this.changeSort.bind(this, 'most peaceful')}>
@@ -112,14 +112,14 @@ class Trends extends Component {
             Exchange Rate Trends:
           </Text>
           <Swiper style={styles.wrapper}
-            height={150}
+            height={310}
             removeClippedSubviews={true}
             showsPagination={false}
             showsButtons={false}>
             {trends}
           </Swiper>
 
-          <Text style={styles.description}>
+          {/*<Text style={styles.description}>
             Relative Expense:
           </Text>
           <Swiper style={styles.wrapper}
@@ -129,7 +129,7 @@ class Trends extends Component {
             showsPagination={false}
             showsButtons={false}>
             {expenseTrends}
-          </Swiper>
+          </Swiper>*/}
 
           <Text style={styles.link}
                 onPress={() => Linking.openURL('http://www.ramblemap.com/display_map?utf8=%E2%9C%93&country=' + country_id + '&region=world&commit=Submit')}>
