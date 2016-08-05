@@ -1,6 +1,7 @@
 'use strict';
 var React = require('react-native');
 var SearchPage = require('./SearchPage');
+var WelcomePage = require('./WelcomePage');
 
 var styles = React.StyleSheet.create({
   text: {
@@ -27,7 +28,7 @@ class RambleApp extends React.Component {
         style={styles.container}
         initialRoute={{
         title: 'Ramble App',
-        component: SearchPage
+        component: WelcomePage
       }}/>
     );
   }

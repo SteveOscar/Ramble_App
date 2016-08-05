@@ -8,7 +8,6 @@ module.exports = StyleSheet.create({
     padding: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
   },
   trendsBackground: {
     flex: 1,
